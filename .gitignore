@@ -26,3 +26,7 @@ paper.out
 paper.run.xml
 paper.tex
 paper.pdf
+# Submission artifacts
+submission/
+paper.bbl-SAVE-ERROR
+paper.bcf-SAVE-ERROR
