@@ -15,7 +15,7 @@
 #+latex_header: \usepackage{booktabs}
 #+latex_header: \usepackage{setspace}
 #+latex_header: \doublespacing
-#+latex_header: \usepackage[switch]{lineno}
+#+latex_header: \usepackage[left]{lineno}
 #+latex_header: \linenumbers
 #+latex_header: \hypersetup{hidelinks}
 #+latex_header: \emergencystretch=4em
