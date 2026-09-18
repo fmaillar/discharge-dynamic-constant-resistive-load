@@ -1,4 +1,4 @@
-#+title: Global and local scaling of Li-ion discharge dynamics under constant resistive loads
+#+title: Global resistance scaling and voltage-dependent local dynamics in Li-ion battery discharge
 #+author: Florian Maillard
 #+email: florian.maillard@mailoo.org
 #+options: toc:nil num:t
@@ -279,11 +279,35 @@ Stage 4 explicitly.
 
 * Abstract
 
-/Stage 8b./
+We analyse ten archived lithium-ion battery discharges obtained under two
+constant resistive loads, \(3.33\,\Omega\) and \(5\,\Omega\), with
+five repeated records per condition. The objective is to determine whether the
+slow discharge trajectories admit a simple global voltage-rate scaling and
+whether that scaling remains uniform along the terminal-voltage coordinate.
+After Savitzky--Golay smoothing, each trajectory is represented as
+\(\dot V(V)\) and compared on a common voltage grid. A global multiplicative
+factor fitted between the two group-mean rate fields gives
+\(\alpha=1.498019\), while the load-resistance ratio is
+\(5/3.33=1.501502\), a relative difference of only 0.232%. Thus, at the
+precision of the present data, the global discharge-rate scaling is equal to the
+resistance ratio. In contrast, the local ratio
+\(K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)\) varies
+strongly with voltage over the robust interval 1.393--3.125 V. Its monotone
+estimate spans 0.428--2.035, crosses the global factor near 2.172 V, and shows
+an RMS local departure of 22.549%. The broad voltage dependence persists across
+nine smoothing/threshold combinations and under bootstrap resampling. Because
+the two resistance conditions were acquired sequentially rather than randomly
+or in an interleaved order, local differences cannot be attributed uniquely to
+resistance; within-group drift is of comparable magnitude to the scaled
+inter-group residual. The results therefore support a two-level empirical
+description: an almost exact global resistance scaling accompanied by a
+reproducible voltage-dependent local correction whose causal origin remains
+underdetermined by the archived design.
 
 * Keywords
 
-/Stage 8b./
+lithium-ion battery; constant-resistance discharge; voltage-rate scaling;
+Savitzky--Golay filtering; bootstrap; discharge dynamics
 
 * Introduction
 
@@ -1009,7 +1033,63 @@ over-interpreting the available experiment.
 
 * Conclusion
 
-/Stage 8b./
+Ten archived lithium-ion discharge records obtained under
+\(3.33\,\Omega\) and \(5\,\Omega\) resistive loads were analysed in a
+common terminal-voltage coordinate. The dominant result is a simple global
+scaling relation between the mean voltage-rate fields. The fitted factor,
+
+\[
+\alpha=1.498019,
+\]
+
+is experimentally equal to the resistance ratio
+
+\[
+\frac{5}{3.33}=1.501502,
+\]
+
+with a relative difference of only 0.232%. At the macroscopic level, the two
+discharge families therefore differ primarily by a temporal-rate factor set by
+the external resistive load.
+
+This global relation does not hold pointwise. The local ratio \(K(V)\) varies
+substantially over the robust voltage interval, with an RMS departure of 22.549%
+from the global factor. The broad shape of this voltage dependence is insensitive
+to the tested smoothing windows and rate thresholds and remains present under
+bootstrap resampling. A constant global rescaling is therefore an accurate
+first-order description but not a complete local description of the discharge
+dynamics.
+
+The local result must be interpreted within the limits of the archived
+experiment. The two resistance conditions were acquired in sequential blocks,
+so load and acquisition order are confounded. No significant monotonic
+within-group trend was detected, but the estimated within-group drift is of the
+same order as the local inter-group residual. The observed local correction is
+therefore reported as a reproducible empirical difference between the two
+discharge families, not as proof of a resistance-only mechanism.
+
+The resulting description is deliberately compact:
+
+\[
+\overline{\dot V}_{3.33}(V)
+\simeq
+\frac{5}{3.33}
+\overline{\dot V}_{5}(V)
+\]
+
+at the global level, with
+
+\[
+\overline{\dot V}_{3.33}(V)
+=
+K(V)\,
+\overline{\dot V}_{5}(V)
+\]
+
+providing the voltage-dependent local correction. This separation between a
+simple global law and a non-uniform local departure captures the principal
+macroscopic structure present in the archived constant-resistance discharges
+without requiring a new mechanistic battery model.
 
 #+print_bibliography:
 
