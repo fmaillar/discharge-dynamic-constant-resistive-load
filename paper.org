@@ -1,0 +1,236 @@
+#+title: Global and local scaling of Li-ion discharge dynamics under constant resistive loads
+#+author: Florian Maillard
+#+email: florian.maillard@mailoo.org
+#+options: toc:nil num:t
+#+latex_class: article
+#+latex_class_options: [11pt]
+#+latex_header: \usepackage[a4paper,margin=2.5cm]{geometry}
+#+latex_header: \usepackage[T1]{fontenc}
+#+latex_header: \usepackage[utf8]{inputenc}
+#+latex_header: \usepackage{lmodern}
+#+latex_header: \usepackage{microtype}
+#+latex_header: \usepackage{amsmath,amssymb}
+#+latex_header: \usepackage{siunitx}
+#+latex_header: \usepackage{graphicx}
+#+latex_header: \usepackage{booktabs}
+#+latex_header: \usepackage{hyperref}
+#+latex_header: \emergencystretch=4em
+
+#+begin_export latex
+\begin{center}
+Independent researcher, Strasbourg, France\\
+Corresponding author: \href{mailto:florian.maillard@mailoo.org}{florian.maillard@mailoo.org}\\
+ORCID: 0000-0002-3334-725X
+\end{center}
+#+end_export
+
+* COMMENT Drafting workflow
+
+This manuscript is developed in nine controlled stages. Results and manuscript
+text are kept directly in this file; no separate results manuscript is used.
+
+1. Scientific scope, claims, non-claims, and manuscript architecture.
+2. Experimental data and acquisition: reuse verified material from the previous
+   paper where the underlying archived data and measurement chain are identical.
+3. Scaling methodology: definitions, preprocessing, global alpha, local K(V),
+   robust interval, uncertainty, and sensitivity analyses.
+4. Final analysis set: freeze figures, numerical summaries, and robustness checks.
+5. Experimental data and Methods prose.
+6. Results prose and figure integration.
+7. Discussion.
+8a. Introduction and literature positioning.
+8b. Final title, Conclusion, Abstract, and Keywords.
+9. Final validation: Org/LaTeX export, equations, figures, references, numerical
+   consistency, overlap check with the previous paper, and submission-ready PDF.
+
+* COMMENT Locked scientific scope
+
+** Central question
+
+Do archived Li-ion discharges obtained under two constant resistive loads admit
+a simple global temporal-rate scaling, and how does the local voltage-rate
+scaling vary along the discharge trajectory?
+
+** Primary result to test and report
+
+For the two discharge families,
+
+\[
+\left(\frac{dV}{dt}\right)_{3.33\,\Omega}
+\approx
+\alpha
+\left(\frac{dV}{dt}\right)_{5\,\Omega},
+\]
+
+with the fitted global factor experimentally equal to the load-resistance ratio,
+
+\[
+\alpha \simeq \frac{5}{3.33}.
+\]
+
+The present analysis gives \(\alpha=1.498019\) and
+\(5/3.33=1.501502\), a relative difference of approximately 0.23%.
+
+** Local quantity
+
+The local dynamic ratio is
+
+\[
+K(V)=
+\frac{
+\left(dV/dt\right)_{3.33\,\Omega}
+}{
+\left(dV/dt\right)_{5\,\Omega}
+}.
+\]
+
+The central secondary observation is that \(K(V)\) is not constant over the
+robust voltage interval even though the global scale factor follows the
+resistance ratio.
+
+** Claims allowed by the archived data
+
+- A global scaling factor can be estimated reproducibly from the two discharge
+  families.
+- The global factor is experimentally indistinguishable, at the precision
+  relevant here, from the ratio of load resistances.
+- The local dynamic ratio varies systematically with voltage.
+- The form of the local ratio is robust to the tested smoothing windows and
+  derivative thresholds.
+- Bootstrap and leave-one-out analyses can quantify repeatability and
+  sensitivity to the finite set of repeated discharges.
+
+** Claims explicitly excluded
+
+- The local variation of \(K(V)\) is not attributed uniquely to load
+  resistance because load condition and acquisition order are confounded.
+- No microscopic electrochemical mechanism is identified from these data alone.
+- No universal scaling law across cell chemistries, temperatures, ageing states,
+  or load families is claimed.
+- =current_a= is not treated as an independent measurement; for these processed
+  files it is derived from terminal voltage and the known resistive load.
+- The work does not revisit the harmonic-fluctuation, aliasing, or low-SOC
+  spectral claims of the previous article.
+
+** Separation from the previous article
+
+The previous article studied fast detrended voltage fluctuations, harmonic
+aliasing, phase locking, periodic reconstruction, and low-SOC spectral
+organization. The present manuscript uses the slow discharge trajectory and its
+voltage-rate field. Harmonic spectra, aliased lines, periodic reconstruction,
+and spectral-noise conclusions are outside the present contribution.
+
+* Abstract
+
+/Stage 8b./
+
+* Keywords
+
+/Stage 8b./
+
+* Introduction
+
+/Stage 8a./
+
+* Experimental data and acquisition
+
+** Discharge data set
+
+/Stage 2, then finalized in Stage 5./
+
+** Measurement chain
+
+/Stage 2, then finalized in Stage 5./
+
+** Constant-resistance loading and derived current
+
+/Stage 2, then finalized in Stage 5./
+
+** Sequential acquisition design
+
+/Stage 2, then finalized in Stage 5./
+
+* Methods
+
+** Slow voltage trajectory and voltage-rate estimation
+
+/Stage 3, then finalized in Stage 5./
+
+** Common voltage coordinate
+
+/Stage 3, then finalized in Stage 5./
+
+** Global scaling factor
+
+/Stage 3, then finalized in Stage 5./
+
+** Local dynamic ratio
+
+/Stage 3, then finalized in Stage 5./
+
+** Robust voltage interval
+
+/Stage 3, then finalized in Stage 5./
+
+** Bootstrap uncertainty and monotone estimate
+
+/Stage 3, then finalized in Stage 5./
+
+** Sensitivity to processing parameters
+
+/Stage 3, then finalized in Stage 5./
+
+** Sequential-order and leave-one-out analyses
+
+/Stage 3, then finalized in Stage 5./
+
+* Results
+
+** Normalized discharge trajectories
+
+/Stage 6./
+
+** Global resistance scaling
+
+/Stage 6./
+
+** Voltage dependence of the local scaling factor
+
+/Stage 6./
+
+** Robustness to processing choices and resampling
+
+/Stage 6./
+
+** Sensitivity to sequential acquisition order
+
+/Stage 6./
+
+* Discussion
+
+/Stage 7./
+
+* Conclusion
+
+/Stage 8b./
+
+* Data and code availability
+
+The analysis code is developed in the public project repository. The archived
+experimental Parquet files are treated as immutable source data by the analysis
+scripts and are opened in read-only mode. Final wording and repository link will
+be fixed at Stage 9.
+
+* Declarations
+
+** Conflict of interest
+
+The author declares no conflict of interest.
+
+** Funding
+
+/To be confirmed at Stage 9./
+
+** Acknowledgements
+
+/To be completed if required./
