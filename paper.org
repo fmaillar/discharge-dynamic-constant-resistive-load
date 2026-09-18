@@ -1049,8 +1049,8 @@ is experimentally equal to the resistance ratio
 \]
 
 with a relative difference of only 0.232%. At the macroscopic level, the two
-discharge families therefore differ primarily by a temporal-rate factor set by
-the external resistive load.
+discharge families therefore differ primarily by a temporal-rate factor
+consistent with the external-resistance ratio.
 
 This global relation does not hold pointwise. The local ratio \(K(V)\) varies
 substantially over the robust voltage interval, with an RMS departure of 22.549%
@@ -1095,21 +1095,30 @@ without requiring a new mechanistic battery model.
 
 * Data and code availability
 
-The analysis code is developed in the public project repository. The archived
-experimental Parquet files are treated as immutable source data by the analysis
-scripts and are opened in read-only mode. Final wording and repository link will
-be fixed at Stage 9.
+The analysis code supporting this study is available in the public repository
+[[https://github.com/fmaillar/discharge-dynamic-constant-resistive-load][github.com/fmaillar/discharge-dynamic-constant-resistive-load]].
+The archived experimental data are available from the corresponding author on
+reasonable request. In the analysis workflow, the source Parquet files are
+treated as immutable inputs and are opened read-only.
 
 * Declarations
 
-** Conflict of interest
+** AI-assisted tools
 
-The author declares no conflict of interest.
+OpenAI ChatGPT was used to assist with code refactoring, manuscript
+organization, literature-search support, and language editing. All analyses were
+executed and verified by the author, who takes full responsibility for the
+scientific content, interpretations, and conclusions.
 
 ** Funding
 
-/To be confirmed at Stage 9./
+The author received no specific funding for this reanalysis.
 
-** Acknowledgements
+** Competing interests
 
-/To be completed if required./
+The author declares no competing financial or non-financial interests.
+
+** Author contributions
+
+Florian Maillard: conceptualization, methodology, software, formal analysis,
+visualization, writing -- original draft, writing -- review and editing.
