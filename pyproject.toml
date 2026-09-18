@@ -1,0 +1,17 @@
+[project]
+name = "discharge-dynamic-constant-resistive-load"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Florian MAILLARD", email = "florian.maillard.thebest@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+discharge-dynamic-constant-resistive-load = "discharge_dynamic_constant_resistive_load:main"
+
+[build-system]
+requires = ["uv_build>=0.12.7,<0.13.0"]
+build-backend = "uv_build"
