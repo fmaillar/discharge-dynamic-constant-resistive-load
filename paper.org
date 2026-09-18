@@ -336,16 +336,20 @@ transport limitations change throughout operation. Battery models therefore
 usually describe terminal voltage as a function of internal state and applied
 current, with approaches ranging from physics-based electrochemical models to
 reduced-order and equivalent-circuit representations
-[cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@mehta2024modelling].
+[cite:@doyle1993dfn;@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@brosaplanella2022physics;@mehta2024modelling].
 
 Equivalent-circuit models are particularly common when the objective is to
 reproduce terminal-voltage response with limited computational cost. Their
 increasing complexity---from an ideal source with series resistance to one or
 more RC polarization branches---improves dynamic fidelity but also introduces
 additional parameters and identification requirements
-[cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm]. In such formulations, load
-dependence is usually represented through current-dependent voltage drop,
-polarization states and state-dependent parameters.
+[cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@tao2024ecmreview]. In such
+formulations, load dependence is usually represented through current-dependent
+voltage drop, polarization states and state-dependent parameters. Recent direct
+comparisons between equivalent-circuit and physics-based descriptions likewise
+show that model adequacy depends on operating regime and calibration domain,
+rather than on one model class being uniformly sufficient
+[cite:@lagnoni2024comparison].
 
 The present work takes a different, deliberately empirical view. Rather than
 identifying an equivalent-circuit topology or inferring internal parameters, it
@@ -468,7 +472,8 @@ merely a plausible global fit: it is the exact local scaling law.
 Real lithium-ion terminal voltage is more complicated. Ohmic drop,
 polarization, diffusion, hysteresis, thermal effects, and state-dependent
 parameters can make the mapping between internal state and measured terminal
-voltage depend on load [cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@mehta2024modelling].
+voltage depend on load
+[cite:@doyle1993dfn;@brosaplanella2022physics;@tao2024ecmreview;@lagnoni2024comparison].
 Those effects break the factorization above in general. The experimental
 question can therefore be stated more precisely: does the ideal $1/R_L$
 scaling survive in the measured data, and if it does, is its validity global,
@@ -1115,7 +1120,12 @@ of the present analysis. A model based only on a constant time-rescaling factor
 would reproduce the average discharge-rate relation but would miss systematic
 voltage-dependent deviations. Conversely, focusing only on the local deviations
 would obscure the remarkably simple global proportionality. Both levels are
-needed to describe the archived data faithfully.
+needed to describe the archived data faithfully. This hierarchy is consistent
+with the broader modelling literature, in which low-order models can reproduce
+terminal-voltage behaviour efficiently within a calibrated regime while
+physics-based formulations retain explicit transport and electrochemical states
+needed outside that simplified description
+[cite:@brosaplanella2022physics;@lagnoni2024comparison].
 
 Seen as a model check, the result is especially revealing. The minimal theory
 predicts two things simultaneously: a global factor equal to the resistance
