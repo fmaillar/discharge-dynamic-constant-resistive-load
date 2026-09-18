@@ -120,6 +120,161 @@ organization. The present manuscript uses the slow discharge trajectory and its
 voltage-rate field. Harmonic spectra, aliased lines, periodic reconstruction,
 and spectral-noise conclusions are outside the present contribution.
 
+* COMMENT Locked final analysis set
+
+Stage 4 freezes the numerical results and figure set used for manuscript
+drafting. Subsequent stages may improve wording, captions, typography, or panel
+layout, but must not silently change the analysis definitions, thresholds,
+reported numerical values, or scientific interpretation below.
+
+** Frozen default analysis
+
+- Savitzky--Golay window: \(60\,\mathrm{s}\), implemented as 601 samples at
+  \(10\,\mathrm{Hz}\).
+- Polynomial order: 3.
+- Common voltage grid: 1000 equally spaced points.
+- Robust rate threshold:
+  \(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) for both group means.
+- Principal robust voltage interval:
+  \(1.393129\)--\(3.125032\,\mathrm{V}\).
+- Bootstrap replicates: 2000, with the two resistance groups resampled
+  independently.
+- Local trend summary: weighted non-increasing isotonic regression.
+- Run-order diagnostic: pointwise linear trend within each five-run group.
+- Leave-one-out global-scaling diagnostic: all \(5\times5=25\) paired
+  omissions.
+
+** Frozen headline numerical results
+
+The fitted global scaling factor is
+
+\[
+\alpha=1.498019,
+\]
+
+while the load-resistance ratio is
+
+\[
+\alpha_R=\frac{5}{3.33}=1.501502.
+\]
+
+Their relative difference is \(-0.2320\%\). For manuscript interpretation,
+this difference is treated as negligible at the precision of the experiment:
+the global voltage-rate scaling is therefore reported as experimentally equal to
+the resistance ratio.
+
+The mean discharge-duration ratio is
+
+\[
+T_{5\Omega}/T_{3.33\Omega}=1.479226.
+\]
+
+The monotone local dynamic ratio spans
+
+\[
+0.428024 \le K(V) \le 2.035410
+\]
+
+over the robust interval and crosses the global factor at
+
+\[
+V=2.171871\,\mathrm{V}.
+\]
+
+The RMS local departure from the global factor is \(22.549\%\), and the
+median absolute local departure is \(17.053\%\). The extreme endpoint
+departures (+35.873% at 1.393129 V and -71.427% at 3.125032 V) are retained as
+descriptive values but are not used to define physical transition voltages.
+
+** Frozen robustness results
+
+The shape of \(K(V)\) is insensitive to the tested processing combinations:
+Savitzky--Golay windows of 30, 60, and 120 s crossed with rate thresholds of
+\(1\times10^{-4}\), \(2\times10^{-4}\), and
+\(3\times10^{-4}\,\mathrm{V\,s^{-1}}\).
+
+The exploratory unconstrained-bootstrap analysis found that the pointwise 95%
+interval excluded the global \(\alpha\) over 58.32% of the robust grid, with
+the two broad continuous intervals 1.393129--1.963029 V and
+2.690823--3.125032 V. The isolated one-grid-point exclusion near 2.525527 V is
+not interpreted physically and is not a headline result.
+
+** Frozen sequential-order diagnostics
+
+No within-group voltage-rate trend reached \(p<0.05\) anywhere on the robust
+grid for either resistance group. Capacity-versus-order slopes were also not
+significant:
+
+- \(3.33\,\Omega\): \(-0.00187951\,\mathrm{Ah/run}\),
+  \(p=0.169929\);
+- \(5\,\Omega\): \(+0.00098531\,\mathrm{Ah/run}\),
+  \(p=0.634002\).
+
+However, the estimated combined within-group drift has an RMS magnitude of
+\(4.2022\times10^{-4}\,\mathrm{V\,s^{-1}}\), compared with
+\(3.9107\times10^{-4}\,\mathrm{V\,s^{-1}}\) for the scaled inter-group
+residual, giving a drift/residual RMS ratio of 1.0745. This is the principal
+reason local differences are not attributed uniquely to resistance.
+
+For the 25 paired leave-one-out fits,
+
+\[
+\bar\alpha_{\mathrm{LOO}}=1.497934,
+\qquad
+s_{\alpha,\mathrm{LOO}}=0.048578,
+\]
+
+with a range of 1.394986--1.570954. The full-data value remains
+\(\alpha=1.498019\).
+
+** Frozen main-figure set
+
+The manuscript will use five main figure concepts. Existing exploratory output
+files are the numerical/graphical sources; final panel composition and
+typography may be regenerated without changing the underlying analysis.
+
+1. *Discharge-trajectory overview*: normalized-time voltage trajectories from
+   =figures/screening/01_normalized_time.pdf=. Purpose: establish the global
+   similarity and different discharge times of the two resistance families.
+2. *Voltage-rate scaling*: mean \(\dot V(V)\) relation together with the
+   globally scaled comparison/residual, using the established V1/V2 outputs
+   (=02_voltage_rate_vs_voltage.pdf= and =05_scaled_rate_residual.pdf=).
+   Purpose: show what \(\alpha\) fits before introducing a ratio.
+3. *Core local-scaling result*: monotone \(K(V)\), raw mean ratio, 95%
+   bootstrap interval, global \(\alpha\), and crossing voltage from
+   =figures/scaling_v4/12_monotone_ratio_bootstrap.pdf=.
+4. *Processing robustness*: the nine parameter combinations from
+   =figures/scaling_v3/11_parameter_sensitivity.pdf=.
+5. *Finite-repeat/order limitation*: leave-one-out \(\alpha\) stability and
+   drift-versus-residual comparison, based on
+   =figures/scaling_v5/19_leave_one_out_alpha.pdf= and
+   =figures/scaling_v5/18_drift_vs_scaling_residual.pdf=. These may be combined
+   into a two-panel manuscript figure.
+
+The following exploratory plots are not main manuscript figures:
+=09_ratio_derivative.pdf=, =14_monotone_local_slope.pdf=, and the automatic
+three-segment V2 plot. Their derivatives/segment boundaries are not used as
+physical-transition evidence. Capacity-order and within-group-drift plots may be
+used as supplementary/diagnostic material if required during review.
+
+** Locked interpretation
+
+The paper will make three nested statements:
+
+1. the two discharge families obey a robust global voltage-rate scaling that is,
+   to experimental precision, the load-resistance ratio;
+2. the local ratio \(K(V)\) varies strongly and reproducibly with terminal
+   voltage rather than remaining equal to the global factor;
+3. because resistance and acquisition order are confounded and the estimated
+   within-group drift is comparable in magnitude with the local inter-group
+   residual, the voltage-dependent departure is reported as an empirical
+   difference between the two archived discharge families, not as a uniquely
+   resistance-caused effect.
+
+No new analysis should be added during manuscript drafting merely to improve the
+appearance of these conclusions. Any later numerical change requires reopening
+Stage 4 explicitly.
+
 * Abstract
 
 /Stage 8b./
@@ -248,8 +403,8 @@ For each discharge, the terminal-voltage signal \(V(t)\) was smoothed with a
 Savitzky--Golay polynomial filter before estimating the slow voltage-rate field.
 The default processing used a \(60\,\mathrm{s}\) window and a polynomial
 order of 3. At the archived sampling frequency of \(10\,\mathrm{Hz}\),
-this corresponds to approximately 600 samples; the implementation enforces an
-odd window length as required by the filter.
+this gives a 601-sample window after enforcing the odd window length required
+by the filter.
 
 The slow voltage derivative was obtained directly from the differentiated
 Savitzky--Golay polynomial rather than by finite differencing the smoothed
@@ -323,7 +478,7 @@ estimated by least squares through the origin over the robust voltage domain,
 \overline{\dot V}_{3.33}(V_i)
 }{
 \sum_i
-\overline{\dot V}_{5}^{,2}(V_i)
+\overline{\dot V}_{5}^{\,2}(V_i)
 }.
 \]
 
