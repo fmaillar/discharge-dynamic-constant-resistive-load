@@ -1097,11 +1097,12 @@ along the trajectory. Over the robust interval, the monotone estimate spans
 0.428024--2.035410 and crosses the global factor near 2.172 V. The RMS local
 departure from $\alpha$ is 22.549%, substantially larger than the 0.232%
 difference between $\alpha$ and the nominal resistance ratio. Thus, the
-near-exact global equality does not imply pointwise proportionality. Because the through-origin least-squares estimator can be written as a
-$\overline{\dot V}_{5}^{,2}$-weighted average of $K(V)$ over the fitted grid,
-local departures above and below $\alpha$ balance under that weighting to yield
-the observed global factor. This is a property of the global least-squares
-projection, not an unweighted arithmetic cancellation.
+near-exact global equality does not imply pointwise proportionality. Because the through-origin least-squares estimator is a weighted average of
+$K(V)$ over the fitted grid, with weights proportional to the squared mean
+voltage rate of the $5\,\Omega$ group, local departures above and below
+$\alpha$ balance under that weighting to yield the observed global factor.
+This is a property of the global least-squares projection, not an unweighted
+arithmetic cancellation.
 
 This distinction between global and local scaling is the central contribution
 of the present analysis. A model based only on a constant time-rescaling factor
