@@ -1,0 +1,78 @@
+FINAL RESULTS MANIFEST -- STAGE 4
+================================
+
+Status: FROZEN FOR MANUSCRIPT DRAFTING
+
+Default analysis
+----------------
+Savitzky-Golay window: 60 s (601 samples at 10 Hz)
+Polynomial order: 3
+Voltage grid: 1000 points
+Rate threshold: 2e-4 V/s
+Robust interval: 1.393129 .. 3.125032 V
+Bootstrap replicates: 2000
+Local trend estimator: weighted non-increasing isotonic regression
+Leave-one-out combinations: 25
+
+Headline global scaling
+-----------------------
+alpha_fit = 1.498019
+R_slow/R_fast = 1.501502
+relative difference = -0.2320 %
+duration ratio T_slow/T_fast = 1.479226
+
+Local dynamic ratio
+-------------------
+K_min = 0.428024
+K_max = 2.035410
+K = alpha crossing voltage = 2.171871 V
+RMS local departure from alpha = 22.549 %
+median absolute local departure = 17.053 %
+maximum positive departure = +35.873 % at 1.393129 V
+maximum negative departure = -71.427 % at 3.125032 V
+
+Bootstrap/sensitivity
+---------------------
+Pointwise 95% bootstrap CI excludes alpha on 58.32 % of robust grid
+Broad continuous exclusion intervals:
+  1.393129 .. 1.963029 V
+  2.690823 .. 3.125032 V
+Isolated one-grid-point exclusion at 2.525527 V: do not interpret physically
+Sensitivity matrix:
+  SG windows = 30, 60, 120 s
+  thresholds = 1e-4, 2e-4, 3e-4 V/s
+
+Sequential-order diagnostics
+----------------------------
+3.33 ohm capacity slope = -0.00187951 Ah/run, p = 0.169929
+5 ohm capacity slope = +0.00098531 Ah/run, p = 0.634002
+Fraction of robust voltage grid with within-group rate slope p < 0.05:
+  3.33 ohm = 0.00 %
+  5 ohm = 0.00 %
+scaled residual RMS = 0.00039107 V/s
+combined within-group drift RMS = 0.00042022 V/s
+drift/residual RMS ratio = 1.0745
+
+Leave-one-out alpha
+-------------------
+mean = 1.497934
+std = 0.048578
+min = 1.394986
+max = 1.570954
+full-data alpha = 1.498019
+
+Main figure concepts
+--------------------
+1. normalized-time discharge trajectories
+2. voltage-rate/global-scaling comparison
+3. monotone K(V) + bootstrap CI + alpha
+4. processing-parameter sensitivity
+5. order/repeat limitation: LOO alpha + drift-vs-residual
+
+Explicitly excluded from main physical interpretation
+-----------------------------------------------------
+- derivative extrema of K(V)
+- steepest dK/dV as a transition voltage
+- automatic three-region segmentation
+- isolated one-grid-point bootstrap significance near 2.525527 V
+- causal attribution of all local K(V) variation uniquely to resistance
