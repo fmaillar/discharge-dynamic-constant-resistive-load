@@ -1,0 +1,28 @@
+Suggested reviewers
+
+1. Dr Alastair Hales
+   Senior Lecturer
+   School of Electrical, Electronic and Mechanical Engineering
+   University of Bristol, United Kingdom
+   Email: a.hales@bristol.ac.uk
+   Expertise: lithium-ion batteries, equivalent-circuit models, battery model
+   parameterisation and validation.
+
+2. Professor Jamie Foster
+   Professor of Applied and Industrial Mathematics
+   School of Computing, Mathematics and Physics
+   University of Portsmouth, United Kingdom
+   Email: Jamie.Foster@port.ac.uk
+   Expertise: mathematical modelling of lithium-ion batteries, reduced-order
+   electrochemical models, asymptotic and numerical methods.
+
+3. Professor Giles Richardson
+   Professor of Applied Mathematics
+   University of Southampton, United Kingdom
+   Email: G.Richardson@soton.ac.uk
+   Expertise: mathematical modelling of electrochemical energy-storage systems,
+   lithium-ion battery models, model reduction and transport phenomena.
+
+The suggested reviewers have been selected for subject-matter expertise relevant
+to the manuscript. To the best of the author's knowledge, they have no current
+institutional affiliation or recent collaboration with the author.
