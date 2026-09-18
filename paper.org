@@ -21,11 +21,15 @@
 #+latex_header: \emergencystretch=4em
 #+bibliography: references.bib
 #+LATEX_COMPILER: pdflatex
-#+cite_export: biblatex numeric,backend=biber,sorting=none,sortcites=true,giveninits=true,maxbibnames=99
+#+cite_export: biblatex numeric,backend=biber,sorting=none,sortcites=true,giveninits=true,maxbibnames=99,doi=true,url=false,isbn=false,eprint=false
 #+latex_header: \AtBeginDocument{\DeclareNameAlias{default}{family-given}}
 #+latex_header: \AtBeginDocument{\DeclareNameAlias{sortname}{family-given}}
 #+latex_header: \AtBeginDocument{\DeclareNameAlias{author}{family-given}}
 #+latex_header: \AtBeginDocument{\DeclareNameAlias{editor}{family-given}}
+#+latex_header: \AtBeginDocument{\DeclareFieldFormat[article]{title}{#1}}
+#+latex_header: \AtBeginDocument{\DeclareFieldFormat{doi}{\href{https://doi.org/#1}{https://doi.org/#1}}}
+#+latex_header: \AtBeginDocument{\renewbibmacro{in:}{}}
+#+latex_header: \AtBeginDocument{\DeclareBibliographyDriver{article}{\usebibmacro{bibindex}\usebibmacro{begentry}\printnames{author}\setunit{\addspace}\printtext[parens]{\printfield{year}}\setunit{\addspace}\printfield{title}\newunit\printfield{journaltitle}\setunit{\addspace}\printfield{volume}\iffieldundef{number}{}{\printtext{\mkbibparens{\printfield{number}}}}\setunit{\addcolon}\printfield{pages}\newunit\printfield{doi}\usebibmacro{finentry}}}
 
 #+begin_export latex
 \begin{center}
@@ -882,6 +886,13 @@ leaving out one run from each load group. All $5\times5=25$ paired
 leave-one-out combinations were analysed with the same robust-domain and
 least-squares procedure.
 
+** Use of AI-assisted tools
+
+OpenAI ChatGPT was used to assist with code refactoring, manuscript
+organization, literature-search support, and language editing. All analyses were
+executed and verified by the author, who takes full responsibility for the
+scientific content, interpretations, and conclusions.
+
 * Results
 
 ** Normalized discharge trajectories
@@ -1291,14 +1302,7 @@ The archived experimental data are available from the corresponding author on
 reasonable request. In the analysis workflow, the source Parquet files are
 treated as immutable inputs and are opened read-only.
 
-* Declarations
-
-** AI-assisted tools
-
-OpenAI ChatGPT was used to assist with code refactoring, manuscript
-organization, literature-search support, and language editing. All analyses were
-executed and verified by the author, who takes full responsibility for the
-scientific content, interpretations, and conclusions.
+* Statements and Declarations
 
 ** Funding
 
