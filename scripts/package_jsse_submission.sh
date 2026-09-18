@@ -38,7 +38,7 @@ required=(
   "paper.tex"
   "paper.bbl"
   "references.bib"
-  "cover_letter.tex"
+  "cover_letter.txt"
 )
 
 for file in "${required[@]}"; do
@@ -59,7 +59,7 @@ rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR"
 
 echo "==> Staging manuscript sources"
-cp paper.tex paper.bbl references.bib cover_letter.tex "$STAGE_DIR/"
+cp paper.tex paper.bbl references.bib cover_letter.txt "$STAGE_DIR/"
 
 if [[ -f biblatex.cfg ]]; then
   cp biblatex.cfg "$STAGE_DIR/"
@@ -97,13 +97,6 @@ if "figures/" in text:
 tex_path.write_text(text, encoding="utf-8")
 PY
 
-echo "==> Building cover letter"
-(
-  cd "$STAGE_DIR"
-  pdflatex -interaction=nonstopmode -halt-on-error cover_letter.tex >/dev/null
-)
-rm -f "$STAGE_DIR/cover_letter.aux" "$STAGE_DIR/cover_letter.log"
-
 echo "==> Adding optional submission files when present"
 optional_names=(
   "cover_letter.docx"
@@ -129,9 +122,6 @@ echo "==> Test-compiling the staged flat package"
   pdflatex -interaction=nonstopmode -halt-on-error paper.tex >/dev/null
   pdflatex -interaction=nonstopmode -halt-on-error paper.tex >/dev/null
 )
-
-# Keep the cover-letter PDF, but remove its LaTeX source from the upload package.
-rm -f "$STAGE_DIR/cover_letter.tex"
 
 # Keep only submission inputs, not temporary TeX build products.
 rm -f   "$STAGE_DIR/paper.pdf"   "$STAGE_DIR/paper.aux"   "$STAGE_DIR/paper.log"   "$STAGE_DIR/paper.out"   "$STAGE_DIR/paper.bcf"   "$STAGE_DIR/paper.run.xml"   "$STAGE_DIR/paper.blg"   "$STAGE_DIR/paper.fdb_latexmk"   "$STAGE_DIR/paper.fls"
