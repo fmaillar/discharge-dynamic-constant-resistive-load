@@ -17,7 +17,7 @@
 #+latex_header: \doublespacing
 #+latex_header: \usepackage[switch]{lineno}
 #+latex_header: \linenumbers
-#+latex_header: \usepackage{hyperref}
+#+latex_header: \usepackage[hidelinks]{hyperref}
 #+latex_header: \emergencystretch=4em
 #+bibliography: references.bib
 #+LATEX_COMPILER: pdflatex
@@ -894,9 +894,6 @@ the largest visible departures concentrated toward the final voltage decline.
 This establishes that the two experimental conditions traverse broadly similar
 terminal-voltage trajectories but at different rates.
 
-#+name: fig:normalized-trajectories
-#+caption: Terminal-voltage trajectories for all ten discharges plotted against normalized discharge time. D70--D74 correspond to $3.33\,\Omega$ and D75--D79 to $5\,\Omega$; each individual trace is identified in the legend. The repeated records show a common global shape, while deviations become more pronounced near the final voltage decline.
-[[file:figures/screening/01_normalized_time.pdf]]
 
 The mean discharge durations were approximately $9239.9\,\mathrm{s}$
 for the $3.33\,\Omega$ group and $13667.9\,\mathrm{s}$ for the
@@ -940,13 +937,7 @@ The relative difference is only $-0.2320\%$. At the precision relevant to
 this experiment, the fitted global scaling factor is therefore experimentally
 equal to the resistance ratio.
 
-#+name: fig:global-scaling
-#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor $\alpha=1.498019$ is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
-[[file:figures/screening/02_voltage_rate_vs_voltage.pdf]]
 
-#+name: fig:scaled-residual
-#+caption: Residual voltage-rate difference after applying the global scaling factor, $r(V)=\overline{\dot V}_{3.33}(V)-\alpha\overline{\dot V}_{5}(V)$. The residual is structured rather than random, motivating a local voltage-dependent scaling analysis.
-[[file:figures/scaling_v2/05_scaled_rate_residual.pdf]]
 
 Although the global proportionality is extremely close to the ideal resistive
 expectation, the residual is not featureless. Its smooth voltage dependence
@@ -980,9 +971,6 @@ V=2.171871\,\mathrm{V}.
 \]
 #+end_export
 
-#+name: fig:local-scaling
-#+caption: Local dynamic ratio $K(V)$ over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor $\alpha$, and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
-[[file:figures/scaling_v4/12_monotone_ratio_bootstrap.pdf]]
 
 Relative to the global factor, the RMS local departure is $22.549\%$, and
 the median absolute departure is $17.053\%$. The largest endpoint
@@ -1002,9 +990,6 @@ $1\times10^{-4}$, $2\times10^{-4}$, and
 $3\times10^{-4}\,\mathrm{V\,s^{-1}}$ produced closely overlapping
 ratio curves over their common valid domains.
 
-#+name: fig:parameter-sensitivity
-#+caption: Sensitivity of the local dynamic ratio to Savitzky--Golay window length and minimum-rate threshold. The nine parameter combinations yield nearly coincident curves over the common voltage domain, showing that the broad voltage dependence of $K(V)$ is not a tuning artifact.
-[[file:figures/scaling_v3/11_parameter_sensitivity.pdf]]
 
 Bootstrap resampling of the repeated discharges led to the same conclusion.
 In the unconstrained bootstrap analysis, the pointwise 95% confidence interval
@@ -1066,9 +1051,6 @@ Their ratio is 1.0745. Thus, although no monotonic run-order trend is detected,
 the available repeats do not allow the local voltage-dependent difference to be
 attributed uniquely to load resistance.
 
-#+name: fig:drift-residual
-#+caption: Magnitude of the scaled inter-group residual compared with the combined within-group drift estimate over the robust voltage interval. Their comparable RMS magnitudes motivate a conservative interpretation of local differences.
-[[file:figures/scaling_v5/18_drift_vs_scaling_residual.pdf]]
 
 The global scaling factor itself is more stable. Across all 25 paired
 leave-one-out combinations,
@@ -1084,9 +1066,6 @@ s_{\alpha,\mathrm{LOO}}=0.048578,
 with a range of 1.394986--1.570954. The mean leave-one-out value is essentially
 identical to the full-data estimate $\alpha=1.498019$.
 
-#+name: fig:loo-alpha
-#+caption: Fitted global scaling factor for all 25 paired leave-one-out combinations. The full-data value and the load-resistance ratio are shown for reference. The centre of the distribution remains close to the full-data estimate, although individual combinations show finite-repeat sensitivity.
-[[file:figures/scaling_v5/19_leave_one_out_alpha.pdf]]
 
 Taken together, these diagnostics support the global scaling result while
 placing a clear limit on the interpretation of the local departure: the
@@ -1331,3 +1310,60 @@ The author declares no competing financial or non-financial interests.
 
 Florian Maillard: conceptualization, methodology, software, formal analysis,
 visualization, writing -- original draft, writing -- review and editing.
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:normalized-trajectories
+#+caption: Terminal-voltage trajectories for all ten discharges plotted against normalized discharge time. D70--D74 correspond to $3.33\,\Omega$ and D75--D79 to $5\,\Omega$; each individual trace is identified in the legend. The repeated records show a common global shape, while deviations become more pronounced near the final voltage decline.
+[[file:figures/screening/01_normalized_time.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:global-scaling
+#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor $\alpha=1.498019$ is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
+[[file:figures/screening/02_voltage_rate_vs_voltage.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:scaled-residual
+#+caption: Residual voltage-rate difference after applying the global scaling factor, $r(V)=\overline{\dot V}_{3.33}(V)-\alpha\overline{\dot V}_{5}(V)$. The residual is structured rather than random, motivating a local voltage-dependent scaling analysis.
+[[file:figures/scaling_v2/05_scaled_rate_residual.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:local-scaling
+#+caption: Local dynamic ratio $K(V)$ over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor $\alpha$, and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
+[[file:figures/scaling_v4/12_monotone_ratio_bootstrap.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:parameter-sensitivity
+#+caption: Sensitivity of the local dynamic ratio to Savitzky--Golay window length and minimum-rate threshold. The nine parameter combinations yield nearly coincident curves over the common voltage domain, showing that the broad voltage dependence of $K(V)$ is not a tuning artifact.
+[[file:figures/scaling_v3/11_parameter_sensitivity.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:drift-residual
+#+caption: Magnitude of the scaled inter-group residual compared with the combined within-group drift estimate over the robust voltage interval. Their comparable RMS magnitudes motivate a conservative interpretation of local differences.
+[[file:figures/scaling_v5/18_drift_vs_scaling_residual.pdf]]
+
+#+begin_export latex
+\clearpage
+#+end_export
+
+#+name: fig:loo-alpha
+#+caption: Fitted global scaling factor for all 25 paired leave-one-out combinations. The full-data value and the load-resistance ratio are shown for reference. The centre of the distribution remains close to the full-data estimate, although individual combinations show finite-repeat sensitivity.
+[[file:figures/scaling_v5/19_leave_one_out_alpha.pdf]]
+
