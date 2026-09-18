@@ -39,6 +39,7 @@ required=(
   "paper.bbl"
   "references.bib"
   "cover_letter.txt"
+  "suggested_reviewers.txt"
 )
 
 for file in "${required[@]}"; do
@@ -59,7 +60,7 @@ rm -rf "$STAGE_DIR"
 mkdir -p "$STAGE_DIR"
 
 echo "==> Staging manuscript sources"
-cp paper.tex paper.bbl references.bib cover_letter.txt "$STAGE_DIR/"
+cp paper.tex paper.bbl references.bib cover_letter.txt suggested_reviewers.txt "$STAGE_DIR/"
 
 if [[ -f biblatex.cfg ]]; then
   cp biblatex.cfg "$STAGE_DIR/"
