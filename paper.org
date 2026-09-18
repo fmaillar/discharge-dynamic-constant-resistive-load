@@ -15,6 +15,8 @@
 #+latex_header: \usepackage{booktabs}
 #+latex_header: \usepackage{hyperref}
 #+latex_header: \emergencystretch=4em
+#+bibliography: references.bib
+#+cite_export: biblatex numeric
 
 #+begin_export latex
 \begin{center}
@@ -285,7 +287,121 @@ Stage 4 explicitly.
 
 * Introduction
 
-/Stage 8a./
+** Macroscopic discharge trajectories and battery modelling
+
+The terminal voltage of a lithium-ion cell evolves continuously during
+discharge because state of charge, internal polarization, ohmic losses and
+transport limitations change throughout operation. Battery models therefore
+usually describe terminal voltage as a function of internal state and applied
+current, with approaches ranging from physics-based electrochemical models to
+reduced-order and equivalent-circuit representations
+[cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@mehta2024modelling].
+
+Equivalent-circuit models are particularly common when the objective is to
+reproduce terminal-voltage response with limited computational cost. Their
+increasing complexity---from an ideal source with series resistance to one or
+more RC polarization branches---improves dynamic fidelity but also introduces
+additional parameters and identification requirements
+[cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm]. In such formulations, load
+dependence is usually represented through current-dependent voltage drop,
+polarization states and state-dependent parameters.
+
+The present work takes a different, deliberately empirical view. Rather than
+identifying an equivalent-circuit topology or inferring internal parameters, it
+asks whether two families of complete discharge trajectories can be related
+directly through the measured voltage-rate field
+\(\dot V(V)\). This provides a reduced description of the macroscopic
+dynamics without assigning the observed structure to a specific microscopic
+process.
+
+** Discharge rate, duration and scaling
+
+A change in load modifies both instantaneous current and total discharge time.
+Scalar relations between discharge rate and available capacity have long been
+used in battery analysis, most notably through Peukert-type laws. Their direct
+application to lithium-ion cells is limited, however, because lithium-ion
+rate--capacity behaviour is not generally described by one universal Peukert
+exponent over all operating currents, and classical formulations assume
+constant-current conditions [cite:@doerffel2006peukert].
+
+Constant-resistance discharge introduces an additional distinction. The current
+is not fixed during a record but follows
+
+\[
+I(t)=\frac{V(t)}{R_L},
+\]
+
+so it decreases as terminal voltage decreases. At equal terminal voltage,
+however, the ratio of the currents under two ideal resistive loads is fixed by
+the inverse resistance ratio. This creates a simple global expectation for the
+relative pace of discharge while leaving open whether the relation remains
+valid locally throughout the voltage trajectory.
+
+A comparison based only on total discharge duration cannot answer that question:
+duration integrates the complete evolution into one scalar. Conversely,
+comparing \(\dot V\) at common terminal voltage retains local information
+about how rapidly each trajectory moves through the same voltage coordinate.
+The distinction between a global time-scale factor and a local
+voltage-dependent factor is therefore the central methodological motivation of
+this study.
+
+** Previous use of the experimental campaign
+
+The archived measurements analysed here were originally acquired in studies of
+electrochemical voltage noise in commercial lithium-ion batteries. The same
+campaign established reproducible discharge records under 3.3--3.33 and
+\(5\,\Omega\) resistive loads and showed that the lower-resistance,
+faster-discharge condition exhibited a larger voltage-noise level
+[cite:@martemianov2015methodology]. Subsequent analysis of the same experimental
+context examined higher-order statistical moments and reported pronounced
+changes near the beginning and end of discharge
+[cite:@martemianov2016moments].
+
+Those earlier studies addressed fluctuations around the slowly varying voltage
+trajectory. The present analysis instead treats that slow trajectory itself as
+the signal of interest. No claim is made here about the spectral or statistical
+properties of the fast residual. Reusing the archived measurements therefore
+serves a distinct question: whether the macroscopic discharge-rate fields under
+the two resistive loads exhibit a simple scaling structure.
+
+** Objective and contribution
+
+The objective is to determine whether the two archived constant-resistance
+discharge families admit a common global voltage-rate scaling and, if so,
+whether that scaling remains locally uniform over terminal voltage.
+
+The analysis is organized around two quantities. First, a single global factor
+\(\alpha\) is fitted from
+
+\[
+\overline{\dot V}_{3.33}(V)
+\approx
+\alpha\,
+\overline{\dot V}_{5}(V).
+\]
+
+Second, the local ratio
+
+\[
+K(V)
+=
+\frac{
+\overline{\dot V}_{3.33}(V)
+}{
+\overline{\dot V}_{5}(V)
+}
+\]
+
+is used to test pointwise proportionality. Bootstrap resampling, processing
+sensitivity and leave-one-out analyses are then used to determine which features
+are robust to finite-repeat and numerical choices.
+
+The contribution is thus not a new electrochemical battery model, nor a new
+capacity law. It is an empirical decomposition of the discharge dynamics into a
+global scaling factor and a voltage-dependent local correction. Because the two
+load groups were acquired sequentially, the local correction is interpreted
+conservatively as a reproducible difference between the archived discharge
+families rather than as proof of a resistance-only causal mechanism.
 
 * Experimental data and acquisition
 
@@ -894,6 +1010,8 @@ over-interpreting the available experiment.
 * Conclusion
 
 /Stage 8b./
+
+#+print_bibliography:
 
 * Data and code availability
 
