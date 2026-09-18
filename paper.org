@@ -781,7 +781,115 @@ not isolate resistance as its sole cause.
 
 * Discussion
 
-/Stage 7./
+The principal result is the coexistence of two apparently contradictory
+features: an almost exact global temporal-rate scaling and a strongly
+voltage-dependent local departure from that scaling. The fitted factor
+\(\alpha=1.498019\) differs from the load-resistance ratio
+\(5/3.33=1.501502\) by only 0.232%. At the scale of the present experiment,
+the global voltage-rate dynamics can therefore be regarded as proportional to
+the resistance ratio. This is consistent with the first-order expectation for a
+resistive load, for which the current at fixed terminal voltage scales as
+\(1/R_L\).
+
+The duration ratio, however, is not identical to the resistance ratio. The
+mean discharge-duration ratio is 1.479226, whereas the global voltage-rate
+factor is 1.498019. This difference is not surprising because total discharge
+duration integrates the complete trajectory, including portions where the local
+rate ratio departs from its global mean. A single duration ratio therefore
+compresses voltage-dependent dynamics into one scalar quantity, whereas the
+voltage-domain representation retains the local structure.
+
+The local ratio \(K(V)\) demonstrates that the global scaling is not uniform
+along the trajectory. Over the robust interval, the monotone estimate spans
+0.428024--2.035410 and crosses the global factor near 2.172 V. The RMS local
+departure from \(\alpha\) is 22.549%, substantially larger than the 0.232%
+difference between \(\alpha\) and the nominal resistance ratio. Thus, the
+near-exact global equality does not imply pointwise proportionality. Instead,
+positive and negative local departures compensate sufficiently over the full
+voltage domain to yield the observed global factor.
+
+This distinction between global and local scaling is the central contribution
+of the present analysis. A model based only on a constant time-rescaling factor
+would reproduce the average discharge-rate relation but would miss systematic
+voltage-dependent deviations. Conversely, focusing only on the local deviations
+would obscure the remarkably simple global proportionality. Both levels are
+needed to describe the archived data faithfully.
+
+The local trend is not a numerical artifact of one particular processing
+choice. The broad shape of \(K(V)\) remains nearly unchanged across the nine
+tested combinations of Savitzky--Golay window and rate threshold. Independent
+bootstrap resampling of repeated discharges also shows that the global factor is
+excluded over broad parts of the robust voltage interval. These observations
+support the interpretation of the voltage dependence as a reproducible property
+of the archived repeat set rather than an accidental consequence of smoothing
+or denominator thresholding.
+
+The monotone representation should nevertheless be interpreted as a descriptive
+summary rather than a mechanistic law. Isotonic regression intentionally
+suppresses local reversals and therefore cannot establish discrete
+electrochemical regimes. For the same reason, extrema of \(dK/dV\) and the
+three-region segmentation explored during preliminary analysis were excluded
+from the final interpretation. The present data support a broad
+voltage-dependent departure from global scaling, not sharply defined transition
+voltages.
+
+A more important limitation arises from the experimental sequence itself. The
+\(3.33\,\Omega\) discharges were acquired first and the
+\(5\,\Omega\) discharges afterwards, so load condition and run order are
+confounded. No statistically significant monotonic within-group trend was found
+in capacity or voltage-rate slope, but the estimated combined within-group drift
+has an RMS magnitude slightly larger than the scaled inter-group residual
+(drift/residual ratio 1.0745). This means that the available repetitions do not
+justify assigning the full local \(K(V)\) structure uniquely to load
+resistance.
+
+The appropriate interpretation is therefore asymmetric. The global result is
+comparatively strong: the full-data \(\alpha\) is centred on the resistance
+ratio, and the mean of the 25 leave-one-out estimates
+(\(1.497934\)) is essentially unchanged. The local result is also reproducible
+as an empirical difference between the two discharge families, but its causal
+origin remains underdetermined by the sequential design. Uncontrolled changes
+between the two acquisition blocks cannot be excluded with the archived data.
+
+This limitation does not invalidate the scaling observation. It defines its
+scope. The present study establishes that two sequential families of
+constant-resistance discharges can exhibit a simple global scaling while
+retaining substantial local voltage dependence. Demonstrating that the local
+departure is caused specifically by resistance would require an interleaved or
+randomized experiment, which is not available for this archived campaign.
+
+The result is also deliberately narrower than the previous analysis of the same
+experimental campaign. That work concerned detrended fast voltage fluctuations,
+aliasing, harmonic organization, and low-SOC behaviour. Here the fast residual
+is not used. The present contribution concerns the slow discharge trajectory and
+the relation between \(\dot V\), terminal voltage, and resistive load. Using
+the same raw measurements for these distinct questions does not require the two
+phenomena to share a common mechanism.
+
+From a modelling perspective, the data suggest a natural hierarchy. The
+zeroth-order description is a global multiplicative law,
+
+\[
+\overline{\dot V}_{3.33}(V)
+\simeq
+\frac{5}{3.33}
+\overline{\dot V}_{5}(V),
+\]
+
+which captures the dominant scaling. A more accurate empirical description
+requires a voltage-dependent correction,
+
+\[
+\overline{\dot V}_{3.33}(V)
+=
+K(V)\,
+\overline{\dot V}_{5}(V),
+\]
+
+with \(K(V)\) constrained here only by observation, not by a proposed
+microscopic mechanism. This separation between a simple global law and a local
+correction provides a compact way to summarize the discharge dynamics without
+over-interpreting the available experiment.
 
 * Conclusion
 
