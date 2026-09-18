@@ -22,10 +22,10 @@
 #+bibliography: references.bib
 #+LATEX_COMPILER: pdflatex
 #+cite_export: biblatex numeric,backend=biber,sorting=none,sortcites=true,giveninits=true,maxbibnames=99
-#+latex_header: \DeclareNameAlias{default}{family-given}
-#+latex_header: \DeclareNameAlias{sortname}{family-given}
-#+latex_header: \DeclareNameAlias{author}{family-given}
-#+latex_header: \DeclareNameAlias{editor}{family-given}
+#+latex_header: \AtBeginDocument{\DeclareNameAlias{default}{family-given}}
+#+latex_header: \AtBeginDocument{\DeclareNameAlias{sortname}{family-given}}
+#+latex_header: \AtBeginDocument{\DeclareNameAlias{author}{family-given}}
+#+latex_header: \AtBeginDocument{\DeclareNameAlias{editor}{family-given}}
 
 #+begin_export latex
 \begin{center}
