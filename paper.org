@@ -299,29 +299,27 @@ Stage 4 explicitly.
 * Abstract
 
 We analyse ten archived lithium-ion battery discharges obtained under two
-constant resistive loads, $3.33\,\Omega$ and $5\,\Omega$, with
-five repeated records per condition. The objective is to determine whether the
-slow discharge trajectories admit a simple global voltage-rate scaling and
-whether that scaling remains uniform along the terminal-voltage coordinate.
-After Savitzky--Golay smoothing, each trajectory is represented as
-$\dot V(V)$ and compared on a common voltage grid. A global multiplicative
-factor fitted between the two group-mean rate fields gives
-$\alpha=1.498019$, while the load-resistance ratio is
-$5/3.33=1.501502$, a relative difference of only 0.232%. Thus, at the
-precision of the present data, the global discharge-rate scaling is equal to the
-resistance ratio. In contrast, the local ratio
-$K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)$ varies
-strongly with voltage over the robust interval 1.393--3.125 V. Its monotone
-estimate spans 0.428--2.035, crosses the global factor near 2.172 V, and shows
-an RMS local departure of 22.549%. The broad voltage dependence persists across
-nine smoothing/threshold combinations and under bootstrap resampling. Because
-the two resistance conditions were acquired sequentially rather than randomly
-or in an interleaved order, local differences cannot be attributed uniquely to
-resistance; within-group drift is of comparable magnitude to the scaled
-inter-group residual. The results therefore support a two-level empirical
-description: an almost exact global resistance scaling accompanied by a
-reproducible voltage-dependent local correction whose causal origin remains
-underdetermined by the archived design.
+constant resistive loads, $3.33\,\Omega$ and $5\,\Omega$, with five
+repeated records per condition. A minimal quasi-static one-state description,
+in which terminal voltage is a single-valued function of charge state and
+$I=V/R_L$, predicts the pointwise factorization
+$\dot V(V,R_L)=G(V)/R_L$ and therefore a local rate ratio equal to the
+resistance ratio at every voltage. We test this ideal scaling directly against
+the measured slow discharge trajectories. After Savitzky--Golay smoothing,
+each record is represented as $\dot V(V)$ on a common voltage grid. The fitted
+global factor is $\alpha=1.498019$, while $5/3.33=1.501502$, a relative
+difference of only 0.232%. Thus the ideal resistance scaling is recovered
+almost exactly at the global level. Locally, however, the ratio
+$K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)$ is not
+constant: over the robust interval 1.393--3.125 V, its monotone estimate spans
+0.428--2.035 and its RMS departure from the global factor is 22.549%. The broad
+voltage dependence persists across nine smoothing/threshold combinations and
+under bootstrap resampling. Because the two resistance conditions were acquired
+sequentially rather than randomly or in an interleaved order, the local
+departure cannot be attributed uniquely to resistance. The result therefore
+defines a clear hierarchy: an ideal $1/R_L$ scaling that survives globally,
+together with a reproducible local breakdown that requires physics or
+experimental variability beyond the minimal one-state description.
 
 * Keywords
 
@@ -390,6 +388,92 @@ The distinction between a global time-scale factor and a local
 voltage-dependent factor is therefore the central methodological motivation of
 this study.
 
+** Minimal theoretical scaling
+
+The simplest possible discharge model gives a sharper reference than the
+duration ratio alone. Let $x$ denote a dimensionless charge-like state and
+assume, at zeroth order, that terminal voltage is a single-valued function of
+that state,
+
+#+begin_export latex
+\[
+V=U(x).
+\]
+#+end_export
+
+If $Q_0$ is a reference capacity, charge conservation under a resistive load
+gives
+
+#+begin_export latex
+\[
+\frac{dx}{dt}
+=
+-\frac{I}{Q_0}
+=
+-\frac{V}{Q_0 R_L}.
+\]
+#+end_export
+
+By the chain rule,
+
+#+begin_export latex
+\[
+\frac{dV}{dt}
+=
+\frac{dU}{dx}\frac{dx}{dt}
+=
+-\frac{1}{R_L}
+\frac{V}{Q_0}
+\frac{dU}{dx}.
+\]
+#+end_export
+
+If $U(x)$ is locally invertible over the considered discharge interval, the
+state-dependent factor can be written as a function of voltage alone. Defining
+
+#+begin_export latex
+\[
+G(V)
+=
+-\frac{V}{Q_0}
+\left.
+\frac{dU}{dx}
+\right|_{x=U^{-1}(V)},
+\]
+#+end_export
+
+the ideal model becomes
+
+#+begin_export latex
+\[
+\dot V(V,R_L)
+=
+\frac{1}{R_L}G(V).
+\]
+#+end_export
+
+For any two resistive loads this predicts the pointwise ratio
+
+#+begin_export latex
+\[
+\frac{\dot V(V,R_1)}{\dot V(V,R_2)}
+=
+\frac{R_2}{R_1},
+\]
+#+end_export
+
+independent of voltage. Thus, in the minimal model, the resistance ratio is not
+merely a plausible global fit: it is the exact local scaling law.
+
+Real lithium-ion terminal voltage is more complicated. Ohmic drop,
+polarization, diffusion, hysteresis, thermal effects, and state-dependent
+parameters can make the mapping between internal state and measured terminal
+voltage depend on load [cite:@liaw2004ecm;@hu2012ecm;@nejad2016ecm;@mehta2024modelling].
+Those effects break the factorization above in general. The experimental
+question can therefore be stated more precisely: does the ideal $1/R_L$
+scaling survive in the measured data, and if it does, is its validity global,
+local, or both?
+
 ** Previous use of the experimental campaign
 
 The archived measurements analysed here were originally acquired in studies of
@@ -411,9 +495,11 @@ the two resistive loads exhibit a simple scaling structure.
 
 ** Objective and contribution
 
-The objective is to determine whether the two archived constant-resistance
-discharge families admit a common global voltage-rate scaling and, if so,
-whether that scaling remains locally uniform over terminal voltage.
+The objective is to test the minimal theoretical factorization
+$\dot V(V,R_L)=G(V)/R_L$ against the two archived constant-resistance
+discharge families. The first question is whether the predicted resistance
+ratio is recovered as a global scaling factor. The second is whether that same
+factor remains valid locally over terminal voltage.
 
 The analysis is organized around two quantities. First, a single global factor
 $\alpha$ is fitted from
@@ -445,12 +531,15 @@ is used to test pointwise proportionality. Bootstrap resampling, processing
 sensitivity and leave-one-out analyses are then used to determine which features
 are robust to finite-repeat and numerical choices.
 
-The contribution is thus not a new electrochemical battery model, nor a new
-capacity law. It is an empirical decomposition of the discharge dynamics into a
-global scaling factor and a voltage-dependent local correction. Because the two
-load groups were acquired sequentially, the local correction is interpreted
-conservatively as a reproducible difference between the archived discharge
-families rather than as proof of a resistance-only causal mechanism.
+The contribution is therefore not the resistance ratio by itself, which follows
+from the minimal model. It is the experimental separation between two levels of
+validity of that model: near-exact recovery of the ideal scaling globally, and
+a strong voltage-dependent breakdown locally. This provides a compact
+model-checking framework without requiring identification of a full
+electrochemical model. Because the two load groups were acquired sequentially,
+the local correction is interpreted conservatively as a reproducible difference
+between the archived discharge families rather than as proof of a
+resistance-only causal mechanism.
 
 * Experimental data and acquisition
 
@@ -994,15 +1083,15 @@ not isolate resistance as its sole cause.
 
 * Discussion
 
-The principal result is the coexistence of two apparently contradictory
-features: an almost exact global temporal-rate scaling and a strongly
-voltage-dependent local departure from that scaling. The fitted factor
-$\alpha=1.498019$ differs from the load-resistance ratio
-$5/3.33=1.501502$ by only 0.232%. At the scale of the present experiment,
-the global voltage-rate dynamics can therefore be regarded as proportional to
-the resistance ratio. This is consistent with the first-order expectation for a
-resistive load, for which the current at fixed terminal voltage scales as
-$1/R_L$.
+The principal result is not the numerical coincidence
+$\alpha\approx5/3.33$ considered in isolation. Under the minimal one-state
+model derived above, that resistance-ratio scaling is the expected pointwise
+law. The informative observation is instead that the ideal law survives almost
+perfectly after global fitting while failing strongly as a local description.
+The fitted factor $\alpha=1.498019$ differs from the load-resistance ratio
+$5/3.33=1.501502$ by only 0.232%, so the zeroth-order $1/R_L$ scaling is
+recovered at the macroscopic level. Yet $K(V)$ is far from constant over the
+same discharge interval.
 
 The duration ratio, however, is not identical to the resistance ratio. The
 mean discharge-duration ratio is 1.479226, whereas the global voltage-rate
@@ -1027,6 +1116,15 @@ would reproduce the average discharge-rate relation but would miss systematic
 voltage-dependent deviations. Conversely, focusing only on the local deviations
 would obscure the remarkably simple global proportionality. Both levels are
 needed to describe the archived data faithfully.
+
+Seen as a model check, the result is especially revealing. The minimal theory
+predicts two things simultaneously: a global factor equal to the resistance
+ratio and a voltage-independent local ratio. The experiment confirms the first
+prediction to within 0.232% but rejects the second at the scale of the observed
+local structure. Therefore the global agreement cannot, by itself, be taken as
+evidence that the battery follows the minimal model throughout discharge. It
+shows instead that non-ideal contributions can be substantial locally while
+largely compensating in the global fit.
 
 The local trend is not a numerical artifact of one particular processing
 choice. The broad shape of $K(V)$ remains nearly unchanged across the nine
@@ -1080,7 +1178,10 @@ the same raw measurements for these distinct questions does not require the two
 phenomena to share a common mechanism.
 
 From a modelling perspective, the data suggest a natural hierarchy. The
-zeroth-order description is a global multiplicative law,
+minimal one-state derivation gives the zeroth-order factorization
+$\dot V(V,R_L)=G(V)/R_L$. Experimentally, its global consequence is retained,
+whereas its local consequence is not. The corresponding zeroth-order
+description is therefore a global multiplicative law,
 
 #+begin_export latex
 \[
@@ -1112,8 +1213,11 @@ over-interpreting the available experiment.
 
 Ten archived lithium-ion discharge records obtained under
 $3.33\,\Omega$ and $5\,\Omega$ resistive loads were analysed in a
-common terminal-voltage coordinate. The dominant result is a simple global
-scaling relation between the mean voltage-rate fields. The fitted factor,
+common terminal-voltage coordinate against a minimal theoretical reference. For
+a one-state quasi-static cell with $I=V/R_L$, the ideal prediction is
+$\dot V(V,R_L)=G(V)/R_L$, so the resistance ratio should hold pointwise. The
+experiment recovers this prediction almost exactly at the global level. The
+fitted factor,
 
 #+begin_export latex
 \[
@@ -1133,13 +1237,13 @@ with a relative difference of only 0.232%. At the macroscopic level, the two
 discharge families therefore differ primarily by a temporal-rate factor
 consistent with the external-resistance ratio.
 
-This global relation does not hold pointwise. The local ratio $K(V)$ varies
-substantially over the robust voltage interval, with an RMS departure of 22.549%
-from the global factor. The broad shape of this voltage dependence is insensitive
-to the tested smoothing windows and rate thresholds and remains present under
-bootstrap resampling. A constant global rescaling is therefore an accurate
-first-order description but not a complete local description of the discharge
-dynamics.
+The second prediction of the minimal model, pointwise proportionality, is not
+supported. The local ratio $K(V)$ varies substantially over the robust voltage
+interval, with an RMS departure of 22.549% from the global factor. The broad
+shape of this voltage dependence is insensitive to the tested smoothing windows
+and rate thresholds and remains present under bootstrap resampling. A constant
+global rescaling is therefore an accurate first-order description but not a
+complete local description of the discharge dynamics.
 
 The local result must be interpreted within the limits of the archived
 experiment. The two resistance conditions were acquired in sequential blocks,
@@ -1171,10 +1275,12 @@ K(V)\,
 \]
 #+end_export
 
-providing the voltage-dependent local correction. This separation between a
-simple global law and a non-uniform local departure captures the principal
-macroscopic structure present in the archived constant-resistance discharges
-without requiring a new mechanistic battery model.
+providing the voltage-dependent local correction. The main inference is thus a
+limit-of-validity statement: the ideal resistive scaling is unexpectedly good
+as a global law but insufficient as a local one. This separation captures the
+principal macroscopic structure present in the archived constant-resistance
+discharges while identifying precisely where a more complete battery
+description becomes necessary.
 
 #+print_bibliography:
 
