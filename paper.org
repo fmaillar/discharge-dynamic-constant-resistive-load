@@ -1118,12 +1118,12 @@ needed outside that simplified description
 
 Seen as a model check, the result is especially revealing. The minimal theory
 predicts two things simultaneously: a global factor equal to the resistance
-ratio and a voltage-independent local ratio. The experiment confirms the first
-prediction to within 0.232% but rejects the second at the scale of the observed
-local structure. Therefore the global agreement cannot, by itself, be taken as
-evidence that the battery follows the minimal model throughout discharge. It
-shows instead that non-ideal contributions can be substantial locally while
-largely compensating in the global fit.
+ratio and a voltage-independent local ratio. The experiment supports the first prediction to within 0.232% but shows a
+substantial departure from the second at the scale of the observed local
+structure. Therefore the global agreement cannot, by itself, be taken as
+evidence that the battery follows the minimal model throughout discharge. It shows instead that non-ideal contributions can be substantial locally
+while their weighted effect under the global least-squares projection remains
+small.
 
 The local trend is not a numerical artifact of one particular processing
 choice. The broad shape of $K(V)$ remains nearly unchanged across the nine
