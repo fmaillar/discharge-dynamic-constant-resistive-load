@@ -1,0 +1,74 @@
+STAGE 9 MANUSCRIPT VALIDATION
+=============================
+
+Scope
+-----
+Final audit after completion of Stages 1--8b.
+
+Scientific consistency
+----------------------
+PASS: alpha is consistently reported as 1.498019.
+PASS: resistance ratio is consistently reported as 1.501502.
+PASS: relative difference is consistently reported as 0.232%.
+PASS: robust interval is consistently 1.393129--3.125032 V.
+PASS: K(V) monotone range is consistently 0.428024--2.035410.
+PASS: K(V)=alpha crossing is consistently 2.171871 V.
+PASS: RMS local departure is consistently 22.549%.
+PASS: sequential-order limitation is retained in Abstract, Methods, Results,
+      Discussion, and Conclusion.
+PASS: no derivative extremum or automatic segmentation is interpreted as a
+      physical transition.
+
+Overlap audit against JSEL-D-26-00904
+-------------------------------------
+The earlier manuscript addresses detrended fast voltage fluctuations, spectral
+aliasing, harmonic phase locking, harmonic reconstruction, and a low-SOC
+transition. The present manuscript addresses the slow discharge trajectory,
+dV/dt as a function of terminal voltage, global temporal-rate scaling, and
+voltage-dependent local departure.
+
+Shared material is restricted to the underlying archived D70--D79 experiment,
+basic acquisition facts, and the derived-current status. Those shared facts are
+necessary to describe the reused experimental archive. The signal-processing
+object, mathematical observables, figures, Results, Discussion, and central
+claims are different.
+
+The present manuscript explicitly states that it does not revisit the previous
+spectral/harmonic claims. No spectral PSD, alias map, phase-locking metric,
+harmonic reconstruction, low-SOC changepoint, or periodic-component variance
+result is reused as a result of this paper.
+
+Bibliography audit
+------------------
+Verified DOI/title/journal metadata for the seven bibliography entries used in
+the Introduction. The 2016 Russian Journal of Electrochemistry English edition
+uses pages 1122--1130 for DOI 10.1134/S1023193516120089.
+
+Submission declarations
+-----------------------
+AI-assisted tools: included.
+Funding: no specific funding for this reanalysis.
+Competing interests: none declared.
+Author contributions: included.
+Data/code availability: public analysis repository; archived data available from
+the corresponding author on reasonable request.
+
+Figure/export status
+--------------------
+The seven figure files referenced by paper.org are generated analysis outputs
+and are not stored in GitHub on the current branch. They must exist locally
+before Org/LaTeX export. scripts/validate_manuscript.sh checks for all seven and
+fails with explicit regeneration commands if any are missing.
+
+Final local commands
+--------------------
+uv sync
+uv run python scripts/01_screen_temporal_scaling.py
+uv run python scripts/02_temporal_scaling_v2.py
+uv run python scripts/03_temporal_scaling_v3.py
+uv run python scripts/04_temporal_scaling_v4.py
+uv run python scripts/05_order_confounding_v5.py
+bash scripts/validate_manuscript.sh
+
+If Emacs and latexmk are installed, the validation script also exports paper.org
+to paper.tex and builds paper.pdf.
