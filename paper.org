@@ -887,13 +887,6 @@ leaving out one run from each load group. All $5\times5=25$ paired
 leave-one-out combinations were analysed with the same robust-domain and
 least-squares procedure.
 
-** Use of AI-assisted tools
-
-OpenAI ChatGPT was used to assist with code refactoring, manuscript
-organization, literature-search support, and language editing. All analyses were
-executed and verified by the author, who takes full responsibility for the
-scientific content, interpretations, and conclusions.
-
 * Results
 
 ** Normalized discharge trajectories
@@ -1359,5 +1352,12 @@ The author declares no competing financial or non-financial interests.
 
 Florian Maillard: conceptualization, methodology, software, formal analysis,
 visualization, writing -- original draft, writing -- review and editing.
+
+** Use of AI-assisted tools
+
+OpenAI ChatGPT was used to assist with code refactoring, manuscript
+organization, literature-search support, and language editing. All analyses were
+executed and verified by the author, who takes full responsibility for the
+scientific content, interpretations, and conclusions.
 
 
