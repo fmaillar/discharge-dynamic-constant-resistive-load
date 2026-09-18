@@ -895,7 +895,7 @@ This establishes that the two experimental conditions traverse broadly similar
 terminal-voltage trajectories but at different rates.
 
 #+name: fig:normalized-trajectories
-#+caption: Terminal-voltage trajectories for the two constant-resistance groups plotted against normalized discharge time. The five repeated records in each group show a common global shape, while deviations become more pronounced near the final voltage decline.
+#+caption: Terminal-voltage trajectories for all ten discharges plotted against normalized discharge time. D70--D74 correspond to $3.33\,\Omega$ and D75--D79 to $5\,\Omega$; each individual trace is identified in the legend. The repeated records show a common global shape, while deviations become more pronounced near the final voltage decline.
 [[file:figures/screening/01_normalized_time.pdf]]
 
 The mean discharge durations were approximately $9239.9\,\mathrm{s}$
