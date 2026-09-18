@@ -1,13 +1,15 @@
 [project]
 name = "discharge-dynamic-constant-resistive-load"
 version = "0.1.0"
-description = "Add your description here"
+description = "Analysis of Li-ion discharge dynamics under constant resistive loads"
 readme = "README.md"
 authors = [
     { name = "Florian MAILLARD", email = "florian.maillard.thebest@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "pyarrow",
+]
 
 [project.scripts]
 discharge-dynamic-constant-resistive-load = "discharge_dynamic_constant_resistive_load:main"
