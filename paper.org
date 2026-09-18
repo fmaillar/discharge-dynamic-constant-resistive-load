@@ -17,7 +17,7 @@
 #+latex_header: \doublespacing
 #+latex_header: \usepackage[switch]{lineno}
 #+latex_header: \linenumbers
-#+latex_header: \usepackage[hidelinks]{hyperref}
+#+latex_header: \hypersetup{hidelinks}
 #+latex_header: \emergencystretch=4em
 #+bibliography: references.bib
 #+LATEX_COMPILER: pdflatex
