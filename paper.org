@@ -136,19 +136,109 @@ and spectral-noise conclusions are outside the present contribution.
 
 ** Discharge data set
 
-/Stage 2, then finalized in Stage 5./
+The analysis uses ten archived discharge records, D70--D79, from the same
+experimental campaign analysed in the previous study. The records form two
+constant-resistance groups: D70--D74 were acquired with a \(3.33\,\Omega\)
+load and D75--D79 with a \(5\,\Omega\) load, giving five repeated
+discharges for each load condition. All ten records were sampled at
+\(f_s=10\,\mathrm{Hz}\). The nominal reference capacity stored in the
+archived metadata is \(2.6\,\mathrm{Ah}\).
+
+For the present work, the primary experimental observables are time and
+reconstructed terminal voltage. The archived files also contain SOC and a
+derived current channel, but the analysis developed here is formulated directly
+in the voltage domain and does not require SOC as its independent coordinate.
+This choice distinguishes the present study from the previous low-SOC spectral
+analysis: the discharge trajectories are compared at common terminal-voltage
+values rather than partitioned primarily by SOC.
+
+The ten records are treated as two finite experimental populations of repeated
+discharges. No additional cell types, temperatures, ageing states, or loading
+protocols are introduced. Conclusions are therefore restricted to these archived
+discharge families.
+
+#+caption: Archived discharge records used in the present study.
+| Runs    | Load resistance | Repeats | Sampling |
+|---------+-----------------+---------+----------|
+| D70--D74 | \(3.33\,\Omega\) | 5 | \(10\,\mathrm{Hz}\) |
+| D75--D79 | \(5\,\Omega\)    | 5 | \(10\,\mathrm{Hz}\) |
 
 ** Measurement chain
 
-/Stage 2, then finalized in Stage 5./
+Terminal voltage was acquired with a Keithley 2182 nanovoltmeter. In the
+archived processed records, the battery-voltage channel had already been
+converted to terminal voltage using the divider gain stored with the data; for
+D70--D79 the archived divider gain is 500. The present analysis therefore uses
+the reconstructed terminal-voltage signal provided by the archived data rather
+than attempting a new reconstruction from raw instrument counts.
+
+As in the previous study, only acquisition parameters directly supported by the
+archived records and metadata are reported. The surviving acquisition material
+does not permit an unambiguous reconstruction of every instrument setting used
+for D70--D79. Settings found in auxiliary scripts are therefore not assumed to
+represent these ten measurements unless they are independently supported by the
+archived data.
+
+This restriction is intentional. The present work relies on relative comparisons
+between repeated discharge trajectories acquired within the same experimental
+campaign, and no inference is based on undocumented instrument settings.
 
 ** Constant-resistance loading and derived current
 
-/Stage 2, then finalized in Stage 5./
+The two experimental conditions differ by the external resistive load,
+\(R_L=3.33\,\Omega\) and \(R_L=5\,\Omega\). Under an ideal resistive
+load, the instantaneous current associated with the measured terminal voltage
+is
+
+\[
+I(t)=\frac{V(t)}{R_L}.
+\]
+
+The =current_a= field in the processed discharge files is not an independent
+current measurement; it was reconstructed from terminal voltage and the known
+load resistance according to the expression above. Consequently, current is not
+used as an independent observable in the present analysis. In particular,
+voltage--current correlations or coherence would be deterministic consequences
+of the reconstruction and are not used as physical evidence.
+
+The load resistance is instead treated as the experimental condition. This
+makes the natural first-order scaling expectation explicit: at a common terminal
+voltage, the ideal resistive-load current ratio is
+
+\[
+\frac{I_{3.33}}{I_{5}}
+=
+\frac{V/3.33}{V/5}
+=
+\frac{5}{3.33}.
+\]
+
+The scaling analyses introduced below test whether the measured voltage-rate
+dynamics exhibit the same global ratio and whether departures from that global
+relation depend systematically on terminal voltage.
 
 ** Sequential acquisition design
 
-/Stage 2, then finalized in Stage 5./
+The acquisition order is an intrinsic limitation of the archived experiment.
+The \(3.33\,\Omega\) records are D70--D74 and the \(5\,\Omega\)
+records are D75--D79; the two load conditions were therefore not interleaved or
+randomized. Load condition and acquisition order are consequently confounded.
+
+This design does not prevent comparison of the two archived discharge families,
+but it limits causal interpretation of local differences between them. A
+voltage-dependent difference cannot be attributed uniquely to load resistance if
+an unobserved sequential change in the experimental system could produce a
+comparable effect.
+
+For that reason, the present study separates two questions. The first is whether
+the two discharge families exhibit a reproducible global scaling relation. The
+second is whether the local departure from this global scaling varies with
+voltage. The latter is reported as an empirical property of the two sequential
+data sets rather than as proof of a resistance-only causal mechanism.
+
+The possible influence of sequential order is evaluated explicitly later using
+within-group trends and leave-one-out analyses. No attempt is made to compensate
+for the acquisition order by introducing an unverified correction model.
 
 * Methods
 
