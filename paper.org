@@ -1286,8 +1286,8 @@ description becomes necessary.
 
 * Data and code availability
 
-The analysis code supporting this study is available in the public repository
-[[https://github.com/fmaillar/discharge-dynamic-constant-resistive-load][github.com/fmaillar/discharge-dynamic-constant-resistive-load]].
+The analysis code supporting this study is available in the public
+[[https://github.com/fmaillar/discharge-dynamic-constant-resistive-load][project repository]].
 The archived experimental data are available from the corresponding author on
 reasonable request. In the analysis workflow, the source Parquet files are
 treated as immutable inputs and are opened read-only.
