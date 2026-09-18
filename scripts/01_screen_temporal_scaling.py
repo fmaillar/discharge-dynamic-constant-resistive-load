@@ -169,16 +169,22 @@ def plot_normalized_time(runs: list[Run]) -> None:
     fig, ax = plt.subplots(figsize=(7.0, 4.5))
 
     for resistance, group in group_by_resistance(runs).items():
-        for i, run in enumerate(group):
+        for run in group:
             normalized_time = run.time_s / run.time_s[-1]
-            label = f"{resistance:g} Ω" if i == 0 else None
-            ax.plot(normalized_time, run.voltage_v, linewidth=0.8, alpha=0.7, label=label)
+            label = f"D{run.discharge} ({resistance:g} Ω)"
+            ax.plot(
+                normalized_time,
+                run.voltage_v,
+                linewidth=0.8,
+                alpha=0.7,
+                label=label,
+            )
 
     ax.set_xlabel("Normalized discharge time")
     ax.set_ylabel("Voltage [V]")
     ax.set_xlim(0.0, 1.0)
     ax.grid(True, alpha=0.25)
-    ax.legend()
+    ax.legend(ncol=2, fontsize=8)
     fig.tight_layout()
     fig.savefig(OUTPUT_DIR / "01_normalized_time.pdf")
     plt.close(fig)
