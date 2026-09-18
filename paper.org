@@ -75,7 +75,7 @@ For the two discharge families,
 \]
 #+end_export
 
-with the fitted global factor experimentally equal to the load-resistance ratio,
+with the fitted global factor closely matching the load-resistance ratio,
 
 #+begin_export latex
 \[
@@ -109,8 +109,8 @@ resistance ratio.
 
 - A global scaling factor can be estimated reproducibly from the two discharge
   families.
-- The global factor is experimentally indistinguishable, at the precision
-  relevant here, from the ratio of load resistances.
+- The global factor closely matches the ratio of load resistances, with a
+  relative difference of 0.232%.
 - The local dynamic ratio varies systematically with voltage.
 - The form of the local ratio is robust to the tested smoothing windows and
   derivative thresholds.
@@ -181,8 +181,8 @@ while the load-resistance ratio is
 
 Their relative difference is $-0.2320\%$. For manuscript interpretation,
 this difference is treated as negligible at the precision of the experiment:
-the global voltage-rate scaling is therefore reported as experimentally equal to
-the resistance ratio.
+the global voltage-rate scaling is therefore reported as closely matching the
+resistance ratio.
 
 The mean discharge-duration ratio is
 
@@ -413,8 +413,8 @@ V=U(x).
 \]
 #+end_export
 
-If $Q_0$ is a reference capacity, charge conservation under a resistive load
-gives
+If $Q_0$ is a reference capacity expressed in coulombs (so that time is in
+seconds), charge conservation under a resistive load gives
 
 #+begin_export latex
 \[
@@ -933,9 +933,8 @@ The corresponding load-resistance ratio is
 \]
 #+end_export
 
-The relative difference is only $-0.2320\%$. At the precision relevant to
-this experiment, the fitted global scaling factor is therefore experimentally
-equal to the resistance ratio.
+The relative difference is only $-0.2320\%$. At the precision relevant to this experiment, the fitted global scaling factor
+therefore closely matches the resistance ratio.
 
 
 
@@ -1098,9 +1097,11 @@ along the trajectory. Over the robust interval, the monotone estimate spans
 0.428024--2.035410 and crosses the global factor near 2.172 V. The RMS local
 departure from $\alpha$ is 22.549%, substantially larger than the 0.232%
 difference between $\alpha$ and the nominal resistance ratio. Thus, the
-near-exact global equality does not imply pointwise proportionality. Instead,
-positive and negative local departures compensate sufficiently over the full
-voltage domain to yield the observed global factor.
+near-exact global equality does not imply pointwise proportionality. Because the through-origin least-squares estimator can be written as a
+$\overline{\dot V}_{5}^{,2}$-weighted average of $K(V)$ over the fitted grid,
+local departures above and below $\alpha$ balance under that weighting to yield
+the observed global factor. This is a property of the global least-squares
+projection, not an unweighted arithmetic cancellation.
 
 This distinction between global and local scaling is the central contribution
 of the present analysis. A model based only on a constant time-rescaling factor
@@ -1222,7 +1223,7 @@ fitted factor,
 \]
 #+end_export
 
-is experimentally equal to the resistance ratio
+closely matches the resistance ratio
 
 #+begin_export latex
 \[
@@ -1324,7 +1325,7 @@ visualization, writing -- original draft, writing -- review and editing.
 #+end_export
 
 #+name: fig:global-scaling
-#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor $\alpha=1.498019$ is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
+#+caption: Mean voltage-rate dynamics for the two load groups as functions of smoothed terminal voltage. The fitted global factor $\alpha=1.498019$ closely matches the load-resistance ratio $5/3.33=1.501502$. The scaling residual is shown separately in Fig. [[fig:scaled-residual]].
 [[file:figures/screening/02_voltage_rate_vs_voltage.pdf]]
 
 #+begin_export latex
