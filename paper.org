@@ -70,7 +70,7 @@ with the fitted global factor experimentally equal to the load-resistance ratio,
 \alpha \simeq \frac{5}{3.33}.
 \]
 
-The present analysis gives \(\alpha=1.498019\) and
+The present analysis gives $\alpha=1.498019$ and
 $5/3.33=1.501502$, a relative difference of approximately 0.23%.
 
 ** Local quantity
@@ -131,19 +131,19 @@ reported numerical values, or scientific interpretation below.
 
 ** Frozen default analysis
 
-- Savitzky--Golay window: \(60\,\mathrm{s}\), implemented as 601 samples at
-  \(10\,\mathrm{Hz}\).
+- Savitzky--Golay window: $60\,\mathrm{s}$, implemented as 601 samples at
+  $10\,\mathrm{Hz}$.
 - Polynomial order: 3.
 - Common voltage grid: 1000 equally spaced points.
 - Robust rate threshold:
-  \(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) for both group means.
+  $2\times10^{-4}\,\mathrm{V\,s^{-1}}$ for both group means.
 - Principal robust voltage interval:
-  $1.393129$--\(3.125032\,\mathrm{V}\).
+  $1.393129$--$3.125032\,\mathrm{V}$.
 - Bootstrap replicates: 2000, with the two resistance groups resampled
   independently.
 - Local trend summary: weighted non-increasing isotonic regression.
 - Run-order diagnostic: pointwise linear trend within each five-run group.
-- Leave-one-out global-scaling diagnostic: all \(5\times5=25\) paired
+- Leave-one-out global-scaling diagnostic: all $5\times5=25$ paired
   omissions.
 
 ** Frozen headline numerical results
@@ -160,7 +160,7 @@ while the load-resistance ratio is
 \alpha_R=\frac{5}{3.33}=1.501502.
 \]
 
-Their relative difference is \(-0.2320\%\). For manuscript interpretation,
+Their relative difference is $-0.2320\%$. For manuscript interpretation,
 this difference is treated as negligible at the precision of the experiment:
 the global voltage-rate scaling is therefore reported as experimentally equal to
 the resistance ratio.
@@ -183,8 +183,8 @@ over the robust interval and crosses the global factor at
 V=2.171871\,\mathrm{V}.
 \]
 
-The RMS local departure from the global factor is \(22.549\%\), and the
-median absolute local departure is \(17.053\%\). The extreme endpoint
+The RMS local departure from the global factor is $22.549\%$, and the
+median absolute local departure is $17.053\%$. The extreme endpoint
 departures (+35.873% at 1.393129 V and -71.427% at 3.125032 V) are retained as
 descriptive values but are not used to define physical transition voltages.
 
@@ -192,11 +192,11 @@ descriptive values but are not used to define physical transition voltages.
 
 The shape of $K(V)$ is insensitive to the tested processing combinations:
 Savitzky--Golay windows of 30, 60, and 120 s crossed with rate thresholds of
-\(1\times10^{-4}\), \(2\times10^{-4}\), and
-\(3\times10^{-4}\,\mathrm{V\,s^{-1}}\).
+$1\times10^{-4}$, $2\times10^{-4}$, and
+$3\times10^{-4}\,\mathrm{V\,s^{-1}}$.
 
 The exploratory unconstrained-bootstrap analysis found that the pointwise 95%
-interval excluded the global \(\alpha\) over 58.32% of the robust grid, with
+interval excluded the global $\alpha$ over 58.32% of the robust grid, with
 the two broad continuous intervals 1.393129--1.963029 V and
 2.690823--3.125032 V. The isolated one-grid-point exclusion near 2.525527 V is
 not interpreted physically and is not a headline result.
@@ -207,14 +207,14 @@ No within-group voltage-rate trend reached $p<0.05$ anywhere on the robust
 grid for either resistance group. Capacity-versus-order slopes were also not
 significant:
 
-- \(3.33\,\Omega\): \(-0.00187951\,\mathrm{Ah/run}\),
+- $3.33\,\Omega$: $-0.00187951\,\mathrm{Ah/run}$,
   $p=0.169929$;
-- \(5\,\Omega\): \(+0.00098531\,\mathrm{Ah/run}\),
+- $5\,\Omega$: $+0.00098531\,\mathrm{Ah/run}$,
   $p=0.634002$.
 
 However, the estimated combined within-group drift has an RMS magnitude of
-\(4.2022\times10^{-4}\,\mathrm{V\,s^{-1}}\), compared with
-\(3.9107\times10^{-4}\,\mathrm{V\,s^{-1}}\) for the scaled inter-group
+$4.2022\times10^{-4}\,\mathrm{V\,s^{-1}}$, compared with
+$3.9107\times10^{-4}\,\mathrm{V\,s^{-1}}$ for the scaled inter-group
 residual, giving a drift/residual RMS ratio of 1.0745. This is the principal
 reason local differences are not attributed uniquely to resistance.
 
@@ -227,7 +227,7 @@ s_{\alpha,\mathrm{LOO}}=0.048578,
 \]
 
 with a range of 1.394986--1.570954. The full-data value remains
-\(\alpha=1.498019\).
+$\alpha=1.498019$.
 
 ** Frozen main-figure set
 
@@ -238,16 +238,16 @@ typography may be regenerated without changing the underlying analysis.
 1. *Discharge-trajectory overview*: normalized-time voltage trajectories from
    =figures/screening/01_normalized_time.pdf=. Purpose: establish the global
    similarity and different discharge times of the two resistance families.
-2. *Voltage-rate scaling*: mean \(\dot V(V)\) relation together with the
+2. *Voltage-rate scaling*: mean $\dot V(V)$ relation together with the
    globally scaled comparison/residual, using the established V1/V2 outputs
    (=02_voltage_rate_vs_voltage.pdf= and =05_scaled_rate_residual.pdf=).
-   Purpose: show what \(\alpha\) fits before introducing a ratio.
+   Purpose: show what $\alpha$ fits before introducing a ratio.
 3. *Core local-scaling result*: monotone $K(V)$, raw mean ratio, 95%
-   bootstrap interval, global \(\alpha\), and crossing voltage from
+   bootstrap interval, global $\alpha$, and crossing voltage from
    =figures/scaling_v4/12_monotone_ratio_bootstrap.pdf=.
 4. *Processing robustness*: the nine parameter combinations from
    =figures/scaling_v3/11_parameter_sensitivity.pdf=.
-5. *Finite-repeat/order limitation*: leave-one-out \(\alpha\) stability and
+5. *Finite-repeat/order limitation*: leave-one-out $\alpha$ stability and
    drift-versus-residual comparison, based on
    =figures/scaling_v5/19_leave_one_out_alpha.pdf= and
    =figures/scaling_v5/18_drift_vs_scaling_residual.pdf=. These may be combined
@@ -280,18 +280,18 @@ Stage 4 explicitly.
 * Abstract
 
 We analyse ten archived lithium-ion battery discharges obtained under two
-constant resistive loads, \(3.33\,\Omega\) and \(5\,\Omega\), with
+constant resistive loads, $3.33\,\Omega$ and $5\,\Omega$, with
 five repeated records per condition. The objective is to determine whether the
 slow discharge trajectories admit a simple global voltage-rate scaling and
 whether that scaling remains uniform along the terminal-voltage coordinate.
 After Savitzky--Golay smoothing, each trajectory is represented as
-\(\dot V(V)\) and compared on a common voltage grid. A global multiplicative
+$\dot V(V)$ and compared on a common voltage grid. A global multiplicative
 factor fitted between the two group-mean rate fields gives
-\(\alpha=1.498019\), while the load-resistance ratio is
+$\alpha=1.498019$, while the load-resistance ratio is
 $5/3.33=1.501502$, a relative difference of only 0.232%. Thus, at the
 precision of the present data, the global discharge-rate scaling is equal to the
 resistance ratio. In contrast, the local ratio
-\(K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)\) varies
+$K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)$ varies
 strongly with voltage over the robust interval 1.393--3.125 V. Its monotone
 estimate spans 0.428--2.035, crosses the global factor near 2.172 V, and shows
 an RMS local departure of 22.549%. The broad voltage dependence persists across
@@ -334,7 +334,7 @@ The present work takes a different, deliberately empirical view. Rather than
 identifying an equivalent-circuit topology or inferring internal parameters, it
 asks whether two families of complete discharge trajectories can be related
 directly through the measured voltage-rate field
-\(\dot V(V)\). This provides a reduced description of the macroscopic
+$\dot V(V)$. This provides a reduced description of the macroscopic
 dynamics without assigning the observed structure to a specific microscopic
 process.
 
@@ -363,7 +363,7 @@ valid locally throughout the voltage trajectory.
 
 A comparison based only on total discharge duration cannot answer that question:
 duration integrates the complete evolution into one scalar. Conversely,
-comparing \(\dot V\) at common terminal voltage retains local information
+comparing $\dot V$ at common terminal voltage retains local information
 about how rapidly each trajectory moves through the same voltage coordinate.
 The distinction between a global time-scale factor and a local
 voltage-dependent factor is therefore the central methodological motivation of
@@ -374,7 +374,7 @@ this study.
 The archived measurements analysed here were originally acquired in studies of
 electrochemical voltage noise in commercial lithium-ion batteries. The same
 campaign established reproducible discharge records under 3.3--3.33 and
-\(5\,\Omega\) resistive loads and showed that the lower-resistance,
+$5\,\Omega$ resistive loads and showed that the lower-resistance,
 faster-discharge condition exhibited a larger voltage-noise level
 [cite:@martemianov2015methodology]. Subsequent analysis of the same experimental
 context examined higher-order statistical moments and reported pronounced
@@ -395,7 +395,7 @@ discharge families admit a common global voltage-rate scaling and, if so,
 whether that scaling remains locally uniform over terminal voltage.
 
 The analysis is organized around two quantities. First, a single global factor
-\(\alpha\) is fitted from
+$\alpha$ is fitted from
 
 \[
 \overline{\dot V}_{3.33}(V)
@@ -435,10 +435,10 @@ Ten archived discharge records, D70--D79, were analysed. They originate from
 the same experimental campaign as the previously reported measurements but are
 used here for a different purpose: characterization of the slow discharge
 trajectory and its voltage-rate scaling. D70--D74 were acquired with a
-\(3.33\,\Omega\) resistive load and D75--D79 with a
-\(5\,\Omega\) load, providing five repetitions per load condition. All ten
-records were sampled at \(f_s=10\,\mathrm{Hz}\), and the nominal reference
-capacity stored in the archived metadata is \(2.6\,\mathrm{Ah}\).
+$3.33\,\Omega$ resistive load and D75--D79 with a
+$5\,\Omega$ load, providing five repetitions per load condition. All ten
+records were sampled at $f_s=10\,\mathrm{Hz}$, and the nominal reference
+capacity stored in the archived metadata is $2.6\,\mathrm{Ah}$.
 
 Time and reconstructed terminal voltage are the primary observables used in the
 present analysis. The archived records also contain state of charge and a
@@ -450,8 +450,8 @@ terminal-voltage values.
 #+caption: Archived discharge records used in the present study.
 | Runs     | Load resistance      | Repeats | Sampling              |
 |----------+----------------------+---------+-----------------------|
-| D70--D74 | \(3.33\,\Omega\) |       5 | \(10\,\mathrm{Hz}\) |
-| D75--D79 | \(5\,\Omega\)    |       5 | \(10\,\mathrm{Hz}\) |
+| D70--D74 | $3.33\,\Omega$ |       5 | $10\,\mathrm{Hz}$ |
+| D75--D79 | $5\,\Omega$    |       5 | $10\,\mathrm{Hz}$ |
 
 The experimental scope is deliberately limited to these ten archived records.
 No additional cell types, temperatures, ageing states, or loading protocols are
@@ -477,7 +477,7 @@ instrument parameters into the analysis.
 ** Constant-resistance loading and derived current
 
 The experimental condition is the external resistive load,
-\(R_L=3.33\,\Omega\) or \(R_L=5\,\Omega\). For an ideal resistive load,
+$R_L=3.33\,\Omega$ or $R_L=5\,\Omega$. For an ideal resistive load,
 
 \[
 I(t)=\frac{V(t)}{R_L}.
@@ -506,7 +506,7 @@ scaling tested below.
 
 The two load conditions were acquired sequentially rather than in an
 interleaved or randomized order: D70--D74 correspond to
-\(3.33\,\Omega\), followed by D75--D79 at \(5\,\Omega\). Load
+$3.33\,\Omega$, followed by D75--D79 at $5\,\Omega$. Load
 condition and acquisition order are therefore confounded.
 
 This design permits direct comparison of the two archived discharge families
@@ -528,10 +528,10 @@ run-order correction is imposed on the data.
 
 For each discharge, the terminal-voltage signal $V(t)$ was smoothed with a
 third-order Savitzky--Golay filter using a default window of
-\(60\,\mathrm{s}\). At \(10\,\mathrm{Hz}\), the implementation uses
+$60\,\mathrm{s}$. At $10\,\mathrm{Hz}$, the implementation uses
 601 samples after enforcing the odd window length required by the filter. The
 voltage derivative was evaluated directly from the differentiated polynomial
-fit, using the physical sampling interval \(\Delta t=1/f_s\),
+fit, using the physical sampling interval $\Delta t=1/f_s$,
 
 \[
 \dot V(t)=\frac{dV}{dt}.
@@ -546,7 +546,7 @@ no detrended fast residual or spectral decomposition is used.
 
 Because the two load conditions produce different discharge durations, records
 were not compared pointwise in time. Instead, each processed trajectory was
-expressed as \(\dot V(V)\). For every discharge, smoothed-voltage samples
+expressed as $\dot V(V)$. For every discharge, smoothed-voltage samples
 were sorted by voltage and the corresponding derivative values were
 interpolated onto 1000 equally spaced points spanning the voltage interval
 common to all ten records. Duplicate voltage values were collapsed before
@@ -578,7 +578,7 @@ The global scaling model is
 \overline{\dot V}_{5}(V),
 \]
 
-with a single multiplicative factor \(\alpha\). It was estimated by
+with a single multiplicative factor $\alpha$. It was estimated by
 least-squares regression through the origin over the robust voltage interval,
 
 \[
@@ -623,7 +623,7 @@ K(V)
 \]
 
 Under exact global rescaling, $K(V)$ would be constant and equal to
-\(\alpha\). Its relative departure from the global factor was therefore
+$\alpha$. Its relative departure from the global factor was therefore
 expressed as
 
 \[
@@ -697,8 +697,8 @@ and rate thresholds
 \]
 
 The same voltage-domain analysis was repeated for each combination. The
-\(60\,\mathrm{s}\) window and
-\(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) threshold define the reference
+$60\,\mathrm{s}$ window and
+$2\times10^{-4}\,\mathrm{V\,s^{-1}}$ threshold define the reference
 analysis; the remaining combinations are used only to test robustness of the
 observed $K(V)$ dependence.
 
@@ -706,7 +706,7 @@ observed $K(V)$ dependence.
 
 The possible effect of sequential acquisition was assessed without applying any
 correction to the data. Within each resistance group, measured capacity was
-regressed against run order. At each common voltage value, \(\dot V\) was
+regressed against run order. At each common voltage value, $\dot V$ was
 also regressed against within-group run index to estimate the equivalent
 first-to-last change across the five repetitions.
 
@@ -722,8 +722,8 @@ r(V)
 \overline{\dot V}_{5}(V).
 \]
 
-Finally, sensitivity of \(\alpha\) to the finite repeat set was evaluated by
-leaving out one run from each load group. All \(5\times5=25\) paired
+Finally, sensitivity of $\alpha$ to the finite repeat set was evaluated by
+leaving out one run from each load group. All $5\times5=25$ paired
 leave-one-out combinations were analysed with the same robust-domain and
 least-squares procedure.
 
@@ -733,8 +733,8 @@ least-squares procedure.
 
 The two resistance groups followed closely related discharge trajectories despite
 their different absolute durations. When time was normalized by the duration of
-each record, the five \(3.33\,\Omega\) discharges and the five
-\(5\,\Omega\) discharges showed a common overall voltage evolution, with
+each record, the five $3.33\,\Omega$ discharges and the five
+$5\,\Omega$ discharges showed a common overall voltage evolution, with
 the largest visible departures concentrated toward the final voltage decline.
 This establishes that the two experimental conditions traverse broadly similar
 terminal-voltage trajectories but at different rates.
@@ -743,9 +743,9 @@ terminal-voltage trajectories but at different rates.
 #+caption: Terminal-voltage trajectories for the two constant-resistance groups plotted against normalized discharge time. The five repeated records in each group show a common global shape, while deviations become more pronounced near the final voltage decline.
 [[file:figures/screening/01_normalized_time.pdf]]
 
-The mean discharge durations were approximately \(9239.9\,\mathrm{s}\)
-for the \(3.33\,\Omega\) group and \(13667.9\,\mathrm{s}\) for the
-\(5\,\Omega\) group, corresponding to a duration ratio
+The mean discharge durations were approximately $9239.9\,\mathrm{s}$
+for the $3.33\,\Omega$ group and $13667.9\,\mathrm{s}$ for the
+$5\,\Omega$ group, corresponding to a duration ratio
 
 \[
 \frac{T_{5\Omega}}{T_{3.33\Omega}}=1.479226.
@@ -757,7 +757,7 @@ locally in voltage rather than relying on duration alone.
 
 ** Global resistance scaling
 
-Expressing the slow discharge dynamics as \(\dot V(V)\) reveals a strong
+Expressing the slow discharge dynamics as $\dot V(V)$ reveals a strong
 global multiplicative relation between the two load groups. A least-squares fit
 through the origin over the robust voltage interval gives
 
@@ -775,16 +775,16 @@ The corresponding load-resistance ratio is
 1.501502.
 \]
 
-The relative difference is only \(-0.2320\%\). At the precision relevant to
+The relative difference is only $-0.2320\%$. At the precision relevant to
 this experiment, the fitted global scaling factor is therefore experimentally
 equal to the resistance ratio.
 
 #+name: fig:global-scaling
-#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor \(\alpha=1.498019\) is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
+#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor $\alpha=1.498019$ is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
 [[file:figures/screening/02_voltage_rate_vs_voltage.pdf]]
 
 #+name: fig:scaled-residual
-#+caption: Residual voltage-rate difference after applying the global scaling factor, \(r(V)=\overline{\dot V}_{3.33}(V)-\alpha\overline{\dot V}_{5}(V)\). The residual is structured rather than random, motivating a local voltage-dependent scaling analysis.
+#+caption: Residual voltage-rate difference after applying the global scaling factor, $r(V)=\overline{\dot V}_{3.33}(V)-\alpha\overline{\dot V}_{5}(V)$. The residual is structured rather than random, motivating a local voltage-dependent scaling analysis.
 [[file:figures/scaling_v2/05_scaled_rate_residual.pdf]]
 
 Although the global proportionality is extremely close to the ideal resistive
@@ -807,7 +807,7 @@ K(V)
 \]
 
 varies substantially over the robust voltage interval
-$1.393129$--\(3.125032\,\mathrm{V}\). The weighted monotone estimate
+$1.393129$--$3.125032\,\mathrm{V}$. The weighted monotone estimate
 ranges from $2.035410$ at the low-voltage end to $0.428024$ at the
 high-voltage end. It crosses the global factor at
 
@@ -816,11 +816,11 @@ V=2.171871\,\mathrm{V}.
 \]
 
 #+name: fig:local-scaling
-#+caption: Local dynamic ratio $K(V)$ over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor \(\alpha\), and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
+#+caption: Local dynamic ratio $K(V)$ over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor $\alpha$, and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
 [[file:figures/scaling_v4/12_monotone_ratio_bootstrap.pdf]]
 
-Relative to the global factor, the RMS local departure is \(22.549\%\), and
-the median absolute departure is \(17.053\%\). The largest endpoint
+Relative to the global factor, the RMS local departure is $22.549\%$, and
+the median absolute departure is $17.053\%$. The largest endpoint
 departures are +35.873% at 1.393129 V and -71.427% at 3.125032 V. These endpoint
 values are descriptive and are not interpreted as separate transition voltages.
 
@@ -833,8 +833,8 @@ their local voltage-rate ratio is strongly voltage dependent.
 The observed voltage dependence of $K(V)$ is not produced by a particular
 choice of smoothing window or rate threshold. Repeating the analysis for
 Savitzky--Golay windows of 30, 60, and 120 s and minimum-rate thresholds of
-\(1\times10^{-4}\), \(2\times10^{-4}\), and
-\(3\times10^{-4}\,\mathrm{V\,s^{-1}}\) produced closely overlapping
+$1\times10^{-4}$, $2\times10^{-4}$, and
+$3\times10^{-4}\,\mathrm{V\,s^{-1}}$ produced closely overlapping
 ratio curves over their common valid domains.
 
 #+name: fig:parameter-sensitivity
@@ -843,7 +843,7 @@ ratio curves over their common valid domains.
 
 Bootstrap resampling of the repeated discharges led to the same conclusion.
 In the unconstrained bootstrap analysis, the pointwise 95% confidence interval
-excluded the global \(\alpha\) over 58.32% of the robust voltage grid. The
+excluded the global $\alpha$ over 58.32% of the robust voltage grid. The
 two broad continuous exclusion intervals were 1.393129--1.963029 V and
 2.690823--3.125032 V. An isolated one-grid-point exclusion near 2.525527 V was
 not treated as physically meaningful.
@@ -858,14 +858,14 @@ although its causal origin is considered separately below.
 The two resistance conditions were acquired sequentially, so possible
 run-order effects were quantified explicitly. Measured capacity showed no
 statistically significant monotonic trend within either group. For
-\(3.33\,\Omega\), the fitted capacity slope was
+$3.33\,\Omega$, the fitted capacity slope was
 
 \[
 -0.00187951\,\mathrm{Ah/run},
 \qquad p=0.169929,
 \]
 
-while for \(5\,\Omega\),
+while for $5\,\Omega$,
 
 \[
 +0.00098531\,\mathrm{Ah/run},
@@ -907,7 +907,7 @@ s_{\alpha,\mathrm{LOO}}=0.048578,
 \]
 
 with a range of 1.394986--1.570954. The mean leave-one-out value is essentially
-identical to the full-data estimate \(\alpha=1.498019\).
+identical to the full-data estimate $\alpha=1.498019$.
 
 #+name: fig:loo-alpha
 #+caption: Fitted global scaling factor for all 25 paired leave-one-out combinations. The full-data value and the load-resistance ratio are shown for reference. The centre of the distribution remains close to the full-data estimate, although individual combinations show finite-repeat sensitivity.
@@ -924,7 +924,7 @@ not isolate resistance as its sole cause.
 The principal result is the coexistence of two apparently contradictory
 features: an almost exact global temporal-rate scaling and a strongly
 voltage-dependent local departure from that scaling. The fitted factor
-\(\alpha=1.498019\) differs from the load-resistance ratio
+$\alpha=1.498019$ differs from the load-resistance ratio
 $5/3.33=1.501502$ by only 0.232%. At the scale of the present experiment,
 the global voltage-rate dynamics can therefore be regarded as proportional to
 the resistance ratio. This is consistent with the first-order expectation for a
@@ -942,8 +942,8 @@ voltage-domain representation retains the local structure.
 The local ratio $K(V)$ demonstrates that the global scaling is not uniform
 along the trajectory. Over the robust interval, the monotone estimate spans
 0.428024--2.035410 and crosses the global factor near 2.172 V. The RMS local
-departure from \(\alpha\) is 22.549%, substantially larger than the 0.232%
-difference between \(\alpha\) and the nominal resistance ratio. Thus, the
+departure from $\alpha$ is 22.549%, substantially larger than the 0.232%
+difference between $\alpha$ and the nominal resistance ratio. Thus, the
 near-exact global equality does not imply pointwise proportionality. Instead,
 positive and negative local departures compensate sufficiently over the full
 voltage domain to yield the observed global factor.
@@ -974,8 +974,8 @@ voltage-dependent departure from global scaling, not sharply defined transition
 voltages.
 
 A more important limitation arises from the experimental sequence itself. The
-\(3.33\,\Omega\) discharges were acquired first and the
-\(5\,\Omega\) discharges afterwards, so load condition and run order are
+$3.33\,\Omega$ discharges were acquired first and the
+$5\,\Omega$ discharges afterwards, so load condition and run order are
 confounded. No statistically significant monotonic within-group trend was found
 in capacity or voltage-rate slope, but the estimated combined within-group drift
 has an RMS magnitude slightly larger than the scaled inter-group residual
@@ -984,7 +984,7 @@ justify assigning the full local $K(V)$ structure uniquely to load
 resistance.
 
 The appropriate interpretation is therefore asymmetric. The global result is
-comparatively strong: the full-data \(\alpha\) is centred on the resistance
+comparatively strong: the full-data $\alpha$ is centred on the resistance
 ratio, and the mean of the 25 leave-one-out estimates
 ($1.497934$) is essentially unchanged. The local result is also reproducible
 as an empirical difference between the two discharge families, but its causal
@@ -1002,7 +1002,7 @@ The result is also deliberately narrower than the previous analysis of the same
 experimental campaign. That work concerned detrended fast voltage fluctuations,
 aliasing, harmonic organization, and low-SOC behaviour. Here the fast residual
 is not used. The present contribution concerns the slow discharge trajectory and
-the relation between \(\dot V\), terminal voltage, and resistive load. Using
+the relation between $\dot V$, terminal voltage, and resistive load. Using
 the same raw measurements for these distinct questions does not require the two
 phenomena to share a common mechanism.
 
@@ -1034,7 +1034,7 @@ over-interpreting the available experiment.
 * Conclusion
 
 Ten archived lithium-ion discharge records obtained under
-\(3.33\,\Omega\) and \(5\,\Omega\) resistive loads were analysed in a
+$3.33\,\Omega$ and $5\,\Omega$ resistive loads were analysed in a
 common terminal-voltage coordinate. The dominant result is a simple global
 scaling relation between the mean voltage-rate fields. The fitted factor,
 
