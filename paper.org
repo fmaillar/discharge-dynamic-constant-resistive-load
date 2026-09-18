@@ -244,35 +244,256 @@ for the acquisition order by introducing an unverified correction model.
 
 ** Slow voltage trajectory and voltage-rate estimation
 
-/Stage 3, then finalized in Stage 5./
+For each discharge, the terminal-voltage signal \(V(t)\) was smoothed with a
+Savitzky--Golay polynomial filter before estimating the slow voltage-rate field.
+The default processing used a \(60\,\mathrm{s}\) window and a polynomial
+order of 3. At the archived sampling frequency of \(10\,\mathrm{Hz}\),
+this corresponds to approximately 600 samples; the implementation enforces an
+odd window length as required by the filter.
+
+The slow voltage derivative was obtained directly from the differentiated
+Savitzky--Golay polynomial rather than by finite differencing the smoothed
+signal. For each record,
+
+\[
+\dot V(t)
+=
+\frac{dV}{dt},
+\]
+
+was evaluated with the same polynomial order and window as the smoothed
+trajectory, using the physical sampling interval
+\(\Delta t=1/f_s\). To reduce edge effects introduced by the moving
+polynomial fit, half of the filter-window length was discarded at each end
+before interpolation or comparison between discharges.
+
+The present analysis intentionally targets the slow discharge trajectory. It
+does not use the detrended fast residual employed in the previous spectral
+study, and no spectral decomposition is required here.
 
 ** Common voltage coordinate
 
-/Stage 3, then finalized in Stage 5./
+The discharge records have different durations and therefore cannot be compared
+pointwise on their native time axes. Instead, each processed derivative
+trajectory was expressed as a function of terminal voltage,
+\(\dot V(V)\).
+
+For every discharge, the smoothed-voltage samples were sorted by voltage and the
+corresponding derivative values were interpolated onto a common voltage grid.
+The grid was restricted to the voltage interval shared by all ten processed
+records and contained 1000 equally spaced points in the default analysis.
+Duplicate voltage values, when present numerically, were collapsed before
+interpolation.
+
+For load group \(R\), the repeated trajectories were then combined by the
+pointwise arithmetic mean,
+
+\[
+\overline{\dot V}_{R}(V)
+=
+\frac{1}{N_R}
+\sum_{j=1}^{N_R}
+\dot V_{R,j}(V),
+\]
+
+with \(N_R=5\) for each resistance condition. This voltage-coordinate
+representation allows the two load groups to be compared at the same terminal
+voltage independently of their different discharge durations.
 
 ** Global scaling factor
 
-/Stage 3, then finalized in Stage 5./
+The global scaling hypothesis is
+
+\[
+\overline{\dot V}_{3.33}(V)
+\approx
+\alpha\,
+\overline{\dot V}_{5}(V),
+\]
+
+where \(\alpha\) is a single multiplicative factor. The fitted factor was
+estimated by least squares through the origin over the robust voltage domain,
+
+\[
+\alpha
+=
+\frac{
+\sum_i
+\overline{\dot V}_{5}(V_i)
+\overline{\dot V}_{3.33}(V_i)
+}{
+\sum_i
+\overline{\dot V}_{5}^{,2}(V_i)
+}.
+\]
+
+No additive intercept was introduced because the quantity of interest is a
+pure temporal-rate scaling between trajectories; an offset would correspond to
+a nonzero discharge-rate difference even when the reference rate vanished.
+
+The fitted value is compared with the resistive-load ratio
+
+\[
+\alpha_R
+=
+\frac{R_{5}}{R_{3.33}}
+=
+\frac{5}{3.33},
+\]
+
+which is the current ratio expected at equal terminal voltage under ideal
+resistive loading.
 
 ** Local dynamic ratio
 
-/Stage 3, then finalized in Stage 5./
+A single global factor does not test whether the scaling is locally uniform
+along the discharge trajectory. The voltage-dependent local dynamic ratio was
+therefore defined as
+
+\[
+K(V)
+=
+\frac{
+\overline{\dot V}_{3.33}(V)
+}{
+\overline{\dot V}_{5}(V)
+}.
+\]
+
+If the two mean discharge-rate fields differed only by a global temporal
+rescaling, \(K(V)\) would remain constant and equal to \(\alpha\).
+Systematic voltage dependence of \(K(V)\) therefore measures local departure
+from the global scaling relation.
+
+For interpretation in relative terms, the local departure from the global
+factor is also expressed as
+
+\[
+\delta_K(V)
+=
+100\left[
+\frac{K(V)}{\alpha}-1
+\right]\,\%.
+\]
 
 ** Robust voltage interval
 
-/Stage 3, then finalized in Stage 5./
+The ratio \(K(V)\) becomes numerically unstable where either group mean
+approaches zero because small denominator values amplify residual estimation
+errors. A rate-magnitude criterion was therefore applied before fitting or
+interpreting the ratio.
+
+A voltage-grid point was considered robust when both group-mean derivative
+magnitudes satisfied
+
+\[
+\left|
+\overline{\dot V}_{3.33}(V)
+\right|
+\ge \dot V_{\min}
+\qquad\text{and}\qquad
+\left|
+\overline{\dot V}_{5}(V)
+\right|
+\ge \dot V_{\min},
+\]
+
+with the default threshold
+
+\[
+\dot V_{\min}=2\times10^{-4}\,\mathrm{V\,s^{-1}}.
+\]
+
+The principal analysis uses the longest contiguous voltage interval satisfying
+this criterion. This avoids interpreting isolated valid points separated by
+near-zero-rate regions and makes the domain of the global and local scaling
+analyses explicit.
 
 ** Bootstrap uncertainty and monotone estimate
 
-/Stage 3, then finalized in Stage 5./
+Uncertainty in the local scaling function was quantified by nonparametric
+bootstrap resampling of the repeated discharges. For each bootstrap replicate,
+the five \(3.33\,\Omega\) runs and the five \(5\,\Omega\) runs were
+resampled independently with replacement. Group-mean rate fields were
+recomputed, their ratio was formed on the fixed robust voltage interval, and
+the procedure was repeated 2000 times. Pointwise 2.5th and 97.5th percentiles
+define the reported 95% bootstrap confidence band.
+
+Because the exploratory analyses showed that the large-scale trend in \(K(V)\)
+is predominantly decreasing with voltage, the final descriptive estimate uses a
+non-increasing isotonic regression fitted by the pool-adjacent-violators
+algorithm. The constraint is used only to summarize the broad monotone trend; it
+is not taken as evidence for discrete physical regimes.
+
+To account approximately for repeat-dependent precision, the isotonic fit was
+weighted by the inverse squared delta-method standard error of the ratio of the
+two group means. Extremely large weights can occur where the estimated standard
+error is very small, so the weights were capped at their 95th percentile before
+the monotone fit. The bootstrap confidence interval itself is obtained by
+resampling repeated discharges rather than from the isotonic-fit weights.
 
 ** Sensitivity to processing parameters
 
-/Stage 3, then finalized in Stage 5./
+The dependence of the local dynamic ratio on processing choices was assessed
+systematically rather than by selecting a single visually favourable
+configuration. The Savitzky--Golay window was varied over
+
+\[
+30,\ 60,\ 120\,\mathrm{s},
+\]
+
+and the minimum derivative threshold over
+
+\[
+1\times10^{-4},\
+2\times10^{-4},\
+3\times10^{-4}\,\mathrm{V\,s^{-1}}.
+\]
+
+All nine combinations were evaluated using the same voltage-domain procedure.
+Agreement of \(K(V)\) across these combinations is used as a robustness check
+for the observed voltage dependence. The default values
+\(60\,\mathrm{s}\) and
+\(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) are retained for the main
+quantitative summaries.
 
 ** Sequential-order and leave-one-out analyses
 
-/Stage 3, then finalized in Stage 5./
+Because the two load conditions were acquired sequentially rather than
+interleaved, additional analyses were used to quantify sensitivity to possible
+run-order effects.
+
+Within each resistance group, the measured capacity was regressed against run
+order. The same approach was applied pointwise to the voltage-rate trajectories:
+for each common voltage value, a linear regression of \(\dot V\) against
+within-group run index was used to estimate the first-to-last equivalent change
+across the five repeated discharges. These regressions are diagnostic rather
+than corrective; no run-order term is subtracted from the data.
+
+The possible magnitude of within-group dynamic drift was compared with the
+inter-group residual after global scaling,
+
+\[
+r(V)
+=
+\overline{\dot V}_{3.33}(V)
+-
+\alpha\,
+\overline{\dot V}_{5}(V).
+\]
+
+Finally, stability of the fitted global factor was assessed by leave-one-out
+resampling. One run was omitted from the \(3.33\,\Omega\) group and one
+from the \(5\,\Omega\) group, producing all
+
+\[
+5\times5=25
+\]
+
+paired leave-one-out combinations. The global factor \(\alpha\) was
+re-estimated for every combination using the same robust-threshold and
+least-squares procedure. The resulting distribution measures sensitivity of the
+global scaling estimate to the finite set of repeated discharges.
 
 * Results
 
