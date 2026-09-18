@@ -71,7 +71,7 @@ with the fitted global factor experimentally equal to the load-resistance ratio,
 \]
 
 The present analysis gives \(\alpha=1.498019\) and
-\(5/3.33=1.501502\), a relative difference of approximately 0.23%.
+$5/3.33=1.501502$, a relative difference of approximately 0.23%.
 
 ** Local quantity
 
@@ -86,7 +86,7 @@ K(V)=
 }.
 \]
 
-The central secondary observation is that \(K(V)\) is not constant over the
+The central secondary observation is that $K(V)$ is not constant over the
 robust voltage interval even though the global scale factor follows the
 resistance ratio.
 
@@ -104,7 +104,7 @@ resistance ratio.
 
 ** Claims explicitly excluded
 
-- The local variation of \(K(V)\) is not attributed uniquely to load
+- The local variation of $K(V)$ is not attributed uniquely to load
   resistance because load condition and acquisition order are confounded.
 - No microscopic electrochemical mechanism is identified from these data alone.
 - No universal scaling law across cell chemistries, temperatures, ageing states,
@@ -138,7 +138,7 @@ reported numerical values, or scientific interpretation below.
 - Robust rate threshold:
   \(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) for both group means.
 - Principal robust voltage interval:
-  \(1.393129\)--\(3.125032\,\mathrm{V}\).
+  $1.393129$--\(3.125032\,\mathrm{V}\).
 - Bootstrap replicates: 2000, with the two resistance groups resampled
   independently.
 - Local trend summary: weighted non-increasing isotonic regression.
@@ -190,7 +190,7 @@ descriptive values but are not used to define physical transition voltages.
 
 ** Frozen robustness results
 
-The shape of \(K(V)\) is insensitive to the tested processing combinations:
+The shape of $K(V)$ is insensitive to the tested processing combinations:
 Savitzky--Golay windows of 30, 60, and 120 s crossed with rate thresholds of
 \(1\times10^{-4}\), \(2\times10^{-4}\), and
 \(3\times10^{-4}\,\mathrm{V\,s^{-1}}\).
@@ -203,14 +203,14 @@ not interpreted physically and is not a headline result.
 
 ** Frozen sequential-order diagnostics
 
-No within-group voltage-rate trend reached \(p<0.05\) anywhere on the robust
+No within-group voltage-rate trend reached $p<0.05$ anywhere on the robust
 grid for either resistance group. Capacity-versus-order slopes were also not
 significant:
 
 - \(3.33\,\Omega\): \(-0.00187951\,\mathrm{Ah/run}\),
-  \(p=0.169929\);
+  $p=0.169929$;
 - \(5\,\Omega\): \(+0.00098531\,\mathrm{Ah/run}\),
-  \(p=0.634002\).
+  $p=0.634002$.
 
 However, the estimated combined within-group drift has an RMS magnitude of
 \(4.2022\times10^{-4}\,\mathrm{V\,s^{-1}}\), compared with
@@ -242,7 +242,7 @@ typography may be regenerated without changing the underlying analysis.
    globally scaled comparison/residual, using the established V1/V2 outputs
    (=02_voltage_rate_vs_voltage.pdf= and =05_scaled_rate_residual.pdf=).
    Purpose: show what \(\alpha\) fits before introducing a ratio.
-3. *Core local-scaling result*: monotone \(K(V)\), raw mean ratio, 95%
+3. *Core local-scaling result*: monotone $K(V)$, raw mean ratio, 95%
    bootstrap interval, global \(\alpha\), and crossing voltage from
    =figures/scaling_v4/12_monotone_ratio_bootstrap.pdf=.
 4. *Processing robustness*: the nine parameter combinations from
@@ -265,7 +265,7 @@ The paper will make three nested statements:
 
 1. the two discharge families obey a robust global voltage-rate scaling that is,
    to experimental precision, the load-resistance ratio;
-2. the local ratio \(K(V)\) varies strongly and reproducibly with terminal
+2. the local ratio $K(V)$ varies strongly and reproducibly with terminal
    voltage rather than remaining equal to the global factor;
 3. because resistance and acquisition order are confounded and the estimated
    within-group drift is comparable in magnitude with the local inter-group
@@ -288,7 +288,7 @@ After Savitzky--Golay smoothing, each trajectory is represented as
 \(\dot V(V)\) and compared on a common voltage grid. A global multiplicative
 factor fitted between the two group-mean rate fields gives
 \(\alpha=1.498019\), while the load-resistance ratio is
-\(5/3.33=1.501502\), a relative difference of only 0.232%. Thus, at the
+$5/3.33=1.501502$, a relative difference of only 0.232%. Thus, at the
 precision of the present data, the global discharge-rate scaling is equal to the
 resistance ratio. In contrast, the local ratio
 \(K(V)=\overline{\dot V}_{3.33}(V)/\overline{\dot V}_{5}(V)\) varies
@@ -526,7 +526,7 @@ run-order correction is imposed on the data.
 
 ** Voltage smoothing and rate estimation
 
-For each discharge, the terminal-voltage signal \(V(t)\) was smoothed with a
+For each discharge, the terminal-voltage signal $V(t)$ was smoothed with a
 third-order Savitzky--Golay filter using a default window of
 \(60\,\mathrm{s}\). At \(10\,\mathrm{Hz}\), the implementation uses
 601 samples after enforcing the odd window length required by the filter. The
@@ -552,7 +552,7 @@ interpolated onto 1000 equally spaced points spanning the voltage interval
 common to all ten records. Duplicate voltage values were collapsed before
 interpolation.
 
-For load group \(R\), the five interpolated trajectories were averaged
+For load group $R$, the five interpolated trajectories were averaged
 pointwise,
 
 \[
@@ -622,7 +622,7 @@ K(V)
 }.
 \]
 
-Under exact global rescaling, \(K(V)\) would be constant and equal to
+Under exact global rescaling, $K(V)$ would be constant and equal to
 \(\alpha\). Its relative departure from the global factor was therefore
 expressed as
 
@@ -663,7 +663,7 @@ ratio and fixes a common domain for global and local comparisons.
 
 ** Bootstrap uncertainty and monotone summary
 
-Uncertainty in \(K(V)\) was estimated by nonparametric bootstrap resampling.
+Uncertainty in $K(V)$ was estimated by nonparametric bootstrap resampling.
 The five runs in each resistance group were sampled independently with
 replacement, group-mean rate fields were recomputed, and their ratio was
 evaluated over the fixed robust interval. This procedure was repeated 2000
@@ -672,7 +672,7 @@ confidence band.
 
 A weighted non-increasing isotonic regression, computed with the
 pool-adjacent-violators algorithm, was used to summarize the broad trend in
-\(K(V)\). The monotonic constraint is descriptive and is not interpreted as
+$K(V)$. The monotonic constraint is descriptive and is not interpreted as
 evidence for discrete physical regimes. Weights were proportional to the
 inverse squared delta-method standard error of the ratio of group means and were
 capped at the 95th percentile to prevent a few very small estimated standard
@@ -700,7 +700,7 @@ The same voltage-domain analysis was repeated for each combination. The
 \(60\,\mathrm{s}\) window and
 \(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) threshold define the reference
 analysis; the remaining combinations are used only to test robustness of the
-observed \(K(V)\) dependence.
+observed $K(V)$ dependence.
 
 ** Sequential-order diagnostics and leave-one-out analysis
 
@@ -780,7 +780,7 @@ this experiment, the fitted global scaling factor is therefore experimentally
 equal to the resistance ratio.
 
 #+name: fig:global-scaling
-#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor \(\alpha=1.498019\) is experimentally equal to the load-resistance ratio \(5/3.33=1.501502\).
+#+caption: Mean voltage-rate dynamics for the two load groups and residual after applying the fitted global scale factor. The fitted factor \(\alpha=1.498019\) is experimentally equal to the load-resistance ratio $5/3.33=1.501502$.
 [[file:figures/screening/02_voltage_rate_vs_voltage.pdf]]
 
 #+name: fig:scaled-residual
@@ -807,8 +807,8 @@ K(V)
 \]
 
 varies substantially over the robust voltage interval
-\(1.393129\)--\(3.125032\,\mathrm{V}\). The weighted monotone estimate
-ranges from \(2.035410\) at the low-voltage end to \(0.428024\) at the
+$1.393129$--\(3.125032\,\mathrm{V}\). The weighted monotone estimate
+ranges from $2.035410$ at the low-voltage end to $0.428024$ at the
 high-voltage end. It crosses the global factor at
 
 \[
@@ -816,7 +816,7 @@ V=2.171871\,\mathrm{V}.
 \]
 
 #+name: fig:local-scaling
-#+caption: Local dynamic ratio \(K(V)\) over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor \(\alpha\), and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
+#+caption: Local dynamic ratio $K(V)$ over the robust voltage interval. The raw mean ratio, weighted non-increasing isotonic estimate, 95% bootstrap interval, global scale factor \(\alpha\), and crossing voltage are shown. The local scaling varies strongly with terminal voltage despite the near-exact global resistance scaling.
 [[file:figures/scaling_v4/12_monotone_ratio_bootstrap.pdf]]
 
 Relative to the global factor, the RMS local departure is \(22.549\%\), and
@@ -830,7 +830,7 @@ their local voltage-rate ratio is strongly voltage dependent.
 
 ** Robustness to processing choices and resampling
 
-The observed voltage dependence of \(K(V)\) is not produced by a particular
+The observed voltage dependence of $K(V)$ is not produced by a particular
 choice of smoothing window or rate threshold. Repeating the analysis for
 Savitzky--Golay windows of 30, 60, and 120 s and minimum-rate thresholds of
 \(1\times10^{-4}\), \(2\times10^{-4}\), and
@@ -838,7 +838,7 @@ Savitzky--Golay windows of 30, 60, and 120 s and minimum-rate thresholds of
 ratio curves over their common valid domains.
 
 #+name: fig:parameter-sensitivity
-#+caption: Sensitivity of the local dynamic ratio to Savitzky--Golay window length and minimum-rate threshold. The nine parameter combinations yield nearly coincident curves over the common voltage domain, showing that the broad voltage dependence of \(K(V)\) is not a tuning artifact.
+#+caption: Sensitivity of the local dynamic ratio to Savitzky--Golay window length and minimum-rate threshold. The nine parameter combinations yield nearly coincident curves over the common voltage domain, showing that the broad voltage dependence of $K(V)$ is not a tuning artifact.
 [[file:figures/scaling_v3/11_parameter_sensitivity.pdf]]
 
 Bootstrap resampling of the repeated discharges led to the same conclusion.
@@ -849,7 +849,7 @@ two broad continuous exclusion intervals were 1.393129--1.963029 V and
 not treated as physically meaningful.
 
 The bootstrap band widens where repeat-to-repeat variability is larger, but the
-large-scale decline of \(K(V)\) persists. The local departure from global
+large-scale decline of $K(V)$ persists. The local departure from global
 scaling is therefore reproducible at the level of the archived repeat set,
 although its causal origin is considered separately below.
 
@@ -873,7 +873,7 @@ while for \(5\,\Omega\),
 \]
 
 Likewise, no voltage point in the robust interval showed a within-group
-voltage-rate slope with \(p<0.05\) for either resistance group.
+voltage-rate slope with $p<0.05$ for either resistance group.
 
 Nevertheless, the estimated magnitude of possible within-group drift is not
 negligible compared with the local inter-group residual. The RMS magnitude of
@@ -925,11 +925,11 @@ The principal result is the coexistence of two apparently contradictory
 features: an almost exact global temporal-rate scaling and a strongly
 voltage-dependent local departure from that scaling. The fitted factor
 \(\alpha=1.498019\) differs from the load-resistance ratio
-\(5/3.33=1.501502\) by only 0.232%. At the scale of the present experiment,
+$5/3.33=1.501502$ by only 0.232%. At the scale of the present experiment,
 the global voltage-rate dynamics can therefore be regarded as proportional to
 the resistance ratio. This is consistent with the first-order expectation for a
 resistive load, for which the current at fixed terminal voltage scales as
-\(1/R_L\).
+$1/R_L$.
 
 The duration ratio, however, is not identical to the resistance ratio. The
 mean discharge-duration ratio is 1.479226, whereas the global voltage-rate
@@ -939,7 +939,7 @@ rate ratio departs from its global mean. A single duration ratio therefore
 compresses voltage-dependent dynamics into one scalar quantity, whereas the
 voltage-domain representation retains the local structure.
 
-The local ratio \(K(V)\) demonstrates that the global scaling is not uniform
+The local ratio $K(V)$ demonstrates that the global scaling is not uniform
 along the trajectory. Over the robust interval, the monotone estimate spans
 0.428024--2.035410 and crosses the global factor near 2.172 V. The RMS local
 departure from \(\alpha\) is 22.549%, substantially larger than the 0.232%
@@ -956,7 +956,7 @@ would obscure the remarkably simple global proportionality. Both levels are
 needed to describe the archived data faithfully.
 
 The local trend is not a numerical artifact of one particular processing
-choice. The broad shape of \(K(V)\) remains nearly unchanged across the nine
+choice. The broad shape of $K(V)$ remains nearly unchanged across the nine
 tested combinations of Savitzky--Golay window and rate threshold. Independent
 bootstrap resampling of repeated discharges also shows that the global factor is
 excluded over broad parts of the robust voltage interval. These observations
@@ -967,7 +967,7 @@ or denominator thresholding.
 The monotone representation should nevertheless be interpreted as a descriptive
 summary rather than a mechanistic law. Isotonic regression intentionally
 suppresses local reversals and therefore cannot establish discrete
-electrochemical regimes. For the same reason, extrema of \(dK/dV\) and the
+electrochemical regimes. For the same reason, extrema of $dK/dV$ and the
 three-region segmentation explored during preliminary analysis were excluded
 from the final interpretation. The present data support a broad
 voltage-dependent departure from global scaling, not sharply defined transition
@@ -980,13 +980,13 @@ confounded. No statistically significant monotonic within-group trend was found
 in capacity or voltage-rate slope, but the estimated combined within-group drift
 has an RMS magnitude slightly larger than the scaled inter-group residual
 (drift/residual ratio 1.0745). This means that the available repetitions do not
-justify assigning the full local \(K(V)\) structure uniquely to load
+justify assigning the full local $K(V)$ structure uniquely to load
 resistance.
 
 The appropriate interpretation is therefore asymmetric. The global result is
 comparatively strong: the full-data \(\alpha\) is centred on the resistance
 ratio, and the mean of the 25 leave-one-out estimates
-(\(1.497934\)) is essentially unchanged. The local result is also reproducible
+($1.497934$) is essentially unchanged. The local result is also reproducible
 as an empirical difference between the two discharge families, but its causal
 origin remains underdetermined by the sequential design. Uncontrolled changes
 between the two acquisition blocks cannot be excluded with the archived data.
@@ -1026,7 +1026,7 @@ K(V)\,
 \overline{\dot V}_{5}(V),
 \]
 
-with \(K(V)\) constrained here only by observation, not by a proposed
+with $K(V)$ constrained here only by observation, not by a proposed
 microscopic mechanism. This separation between a simple global law and a local
 correction provides a compact way to summarize the discharge dynamics without
 over-interpreting the available experiment.
@@ -1052,7 +1052,7 @@ with a relative difference of only 0.232%. At the macroscopic level, the two
 discharge families therefore differ primarily by a temporal-rate factor
 consistent with the external-resistance ratio.
 
-This global relation does not hold pointwise. The local ratio \(K(V)\) varies
+This global relation does not hold pointwise. The local ratio $K(V)$ varies
 substantially over the robust voltage interval, with an RMS departure of 22.549%
 from the global factor. The broad shape of this voltage dependence is insensitive
 to the tested smoothing windows and rate thresholds and remains present under
