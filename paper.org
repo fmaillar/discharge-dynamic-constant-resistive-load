@@ -291,74 +291,65 @@ Stage 4 explicitly.
 
 ** Discharge data set
 
-The analysis uses ten archived discharge records, D70--D79, from the same
-experimental campaign analysed in the previous study. The records form two
-constant-resistance groups: D70--D74 were acquired with a \(3.33\,\Omega\)
-load and D75--D79 with a \(5\,\Omega\) load, giving five repeated
-discharges for each load condition. All ten records were sampled at
-\(f_s=10\,\mathrm{Hz}\). The nominal reference capacity stored in the
-archived metadata is \(2.6\,\mathrm{Ah}\).
+Ten archived discharge records, D70--D79, were analysed. They originate from
+the same experimental campaign as the previously reported measurements but are
+used here for a different purpose: characterization of the slow discharge
+trajectory and its voltage-rate scaling. D70--D74 were acquired with a
+\(3.33\,\Omega\) resistive load and D75--D79 with a
+\(5\,\Omega\) load, providing five repetitions per load condition. All ten
+records were sampled at \(f_s=10\,\mathrm{Hz}\), and the nominal reference
+capacity stored in the archived metadata is \(2.6\,\mathrm{Ah}\).
 
-For the present work, the primary experimental observables are time and
-reconstructed terminal voltage. The archived files also contain SOC and a
-derived current channel, but the analysis developed here is formulated directly
-in the voltage domain and does not require SOC as its independent coordinate.
-This choice distinguishes the present study from the previous low-SOC spectral
-analysis: the discharge trajectories are compared at common terminal-voltage
-values rather than partitioned primarily by SOC.
+Time and reconstructed terminal voltage are the primary observables used in the
+present analysis. The archived records also contain state of charge and a
+derived current field, but neither is required as the independent coordinate for
+the scaling analysis. Instead, discharge trajectories are compared at common
+terminal-voltage values.
 
-The ten records are treated as two finite experimental populations of repeated
-discharges. No additional cell types, temperatures, ageing states, or loading
-protocols are introduced. Conclusions are therefore restricted to these archived
-discharge families.
-
+#+name: tab:dataset
 #+caption: Archived discharge records used in the present study.
-| Runs    | Load resistance | Repeats | Sampling |
-|---------+-----------------+---------+----------|
-| D70--D74 | \(3.33\,\Omega\) | 5 | \(10\,\mathrm{Hz}\) |
-| D75--D79 | \(5\,\Omega\)    | 5 | \(10\,\mathrm{Hz}\) |
+| Runs     | Load resistance      | Repeats | Sampling              |
+|----------+----------------------+---------+-----------------------|
+| D70--D74 | \(3.33\,\Omega\) |       5 | \(10\,\mathrm{Hz}\) |
+| D75--D79 | \(5\,\Omega\)    |       5 | \(10\,\mathrm{Hz}\) |
+
+The experimental scope is deliberately limited to these ten archived records.
+No additional cell types, temperatures, ageing states, or loading protocols are
+introduced; conclusions therefore apply only to the two discharge families
+described in Table [[tab:dataset]].
 
 ** Measurement chain
 
 Terminal voltage was acquired with a Keithley 2182 nanovoltmeter. In the
-archived processed records, the battery-voltage channel had already been
-converted to terminal voltage using the divider gain stored with the data; for
-D70--D79 the archived divider gain is 500. The present analysis therefore uses
-the reconstructed terminal-voltage signal provided by the archived data rather
-than attempting a new reconstruction from raw instrument counts.
+processed archive, the measured battery-voltage channel had already been
+converted to terminal voltage using the divider gain associated with each
+record; for D70--D79 this gain is 500. The present analysis therefore uses the
+archived reconstructed terminal-voltage signal directly and does not attempt a
+new reconstruction from raw instrument counts.
 
-As in the previous study, only acquisition parameters directly supported by the
-archived records and metadata are reported. The surviving acquisition material
-does not permit an unambiguous reconstruction of every instrument setting used
-for D70--D79. Settings found in auxiliary scripts are therefore not assumed to
-represent these ten measurements unless they are independently supported by the
-archived data.
-
-This restriction is intentional. The present work relies on relative comparisons
-between repeated discharge trajectories acquired within the same experimental
-campaign, and no inference is based on undocumented instrument settings.
+Only acquisition parameters that are explicitly supported by the archived data
+and metadata are reported. The surviving material does not permit an
+unambiguous reconstruction of every instrument setting used during D70--D79,
+and auxiliary-script settings are not assumed to apply unless independently
+supported by the archived records. This avoids introducing undocumented
+instrument parameters into the analysis.
 
 ** Constant-resistance loading and derived current
 
-The two experimental conditions differ by the external resistive load,
-\(R_L=3.33\,\Omega\) and \(R_L=5\,\Omega\). Under an ideal resistive
-load, the instantaneous current associated with the measured terminal voltage
-is
+The experimental condition is the external resistive load,
+\(R_L=3.33\,\Omega\) or \(R_L=5\,\Omega\). For an ideal resistive load,
 
 \[
 I(t)=\frac{V(t)}{R_L}.
 \]
 
-The =current_a= field in the processed discharge files is not an independent
-current measurement; it was reconstructed from terminal voltage and the known
-load resistance according to the expression above. Consequently, current is not
-used as an independent observable in the present analysis. In particular,
-voltage--current correlations or coherence would be deterministic consequences
-of the reconstruction and are not used as physical evidence.
+The archived =current_a= field is not an independent current measurement: it was
+computed from terminal voltage and the known load resistance. It is therefore
+not used as an independent observable. In particular, no inference is based on
+voltage--current correlation because such a relation is imposed algebraically by
+the reconstruction.
 
-The load resistance is instead treated as the experimental condition. This
-makes the natural first-order scaling expectation explicit: at a common terminal
-voltage, the ideal resistive-load current ratio is
+At a common terminal voltage, the ideal resistive-load current ratio is
 
 \[
 \frac{I_{3.33}}{I_{5}}
@@ -368,80 +359,61 @@ voltage, the ideal resistive-load current ratio is
 \frac{5}{3.33}.
 \]
 
-The scaling analyses introduced below test whether the measured voltage-rate
-dynamics exhibit the same global ratio and whether departures from that global
-relation depend systematically on terminal voltage.
+This provides the natural first-order reference for the global voltage-rate
+scaling tested below.
 
 ** Sequential acquisition design
 
-The acquisition order is an intrinsic limitation of the archived experiment.
-The \(3.33\,\Omega\) records are D70--D74 and the \(5\,\Omega\)
-records are D75--D79; the two load conditions were therefore not interleaved or
-randomized. Load condition and acquisition order are consequently confounded.
+The two load conditions were acquired sequentially rather than in an
+interleaved or randomized order: D70--D74 correspond to
+\(3.33\,\Omega\), followed by D75--D79 at \(5\,\Omega\). Load
+condition and acquisition order are therefore confounded.
 
-This design does not prevent comparison of the two archived discharge families,
-but it limits causal interpretation of local differences between them. A
-voltage-dependent difference cannot be attributed uniquely to load resistance if
-an unobserved sequential change in the experimental system could produce a
-comparable effect.
+This design permits direct comparison of the two archived discharge families
+but limits causal interpretation of local differences between them. A
+voltage-dependent difference cannot be assigned uniquely to load resistance if
+an unobserved sequential change in the experimental system could generate an
+effect of comparable magnitude.
 
-For that reason, the present study separates two questions. The first is whether
-the two discharge families exhibit a reproducible global scaling relation. The
-second is whether the local departure from this global scaling varies with
-voltage. The latter is reported as an empirical property of the two sequential
-data sets rather than as proof of a resistance-only causal mechanism.
-
-The possible influence of sequential order is evaluated explicitly later using
-within-group trends and leave-one-out analyses. No attempt is made to compensate
-for the acquisition order by introducing an unverified correction model.
+Accordingly, the analysis distinguishes between a global scaling relation,
+which can be estimated directly from the two families, and local
+voltage-dependent departures from that relation, which are treated as empirical
+differences between the archived groups. Possible order effects are quantified
+with within-group trend diagnostics and leave-one-out analyses, but no
+run-order correction is imposed on the data.
 
 * Methods
 
-** Slow voltage trajectory and voltage-rate estimation
+** Voltage smoothing and rate estimation
 
 For each discharge, the terminal-voltage signal \(V(t)\) was smoothed with a
-Savitzky--Golay polynomial filter before estimating the slow voltage-rate field.
-The default processing used a \(60\,\mathrm{s}\) window and a polynomial
-order of 3. At the archived sampling frequency of \(10\,\mathrm{Hz}\),
-this gives a 601-sample window after enforcing the odd window length required
-by the filter.
-
-The slow voltage derivative was obtained directly from the differentiated
-Savitzky--Golay polynomial rather than by finite differencing the smoothed
-signal. For each record,
+third-order Savitzky--Golay filter using a default window of
+\(60\,\mathrm{s}\). At \(10\,\mathrm{Hz}\), the implementation uses
+601 samples after enforcing the odd window length required by the filter. The
+voltage derivative was evaluated directly from the differentiated polynomial
+fit, using the physical sampling interval \(\Delta t=1/f_s\),
 
 \[
-\dot V(t)
-=
-\frac{dV}{dt},
+\dot V(t)=\frac{dV}{dt}.
 \]
 
-was evaluated with the same polynomial order and window as the smoothed
-trajectory, using the physical sampling interval
-\(\Delta t=1/f_s\). To reduce edge effects introduced by the moving
-polynomial fit, half of the filter-window length was discarded at each end
-before interpolation or comparison between discharges.
+This avoids a separate finite-difference operation on the smoothed signal. To
+limit edge effects, half of the filter-window length was discarded at each end
+before interpolation. The analysis targets the slow discharge trajectory only;
+no detrended fast residual or spectral decomposition is used.
 
-The present analysis intentionally targets the slow discharge trajectory. It
-does not use the detrended fast residual employed in the previous spectral
-study, and no spectral decomposition is required here.
+** Transformation to a common voltage coordinate
 
-** Common voltage coordinate
-
-The discharge records have different durations and therefore cannot be compared
-pointwise on their native time axes. Instead, each processed derivative
-trajectory was expressed as a function of terminal voltage,
-\(\dot V(V)\).
-
-For every discharge, the smoothed-voltage samples were sorted by voltage and the
-corresponding derivative values were interpolated onto a common voltage grid.
-The grid was restricted to the voltage interval shared by all ten processed
-records and contained 1000 equally spaced points in the default analysis.
-Duplicate voltage values, when present numerically, were collapsed before
+Because the two load conditions produce different discharge durations, records
+were not compared pointwise in time. Instead, each processed trajectory was
+expressed as \(\dot V(V)\). For every discharge, smoothed-voltage samples
+were sorted by voltage and the corresponding derivative values were
+interpolated onto 1000 equally spaced points spanning the voltage interval
+common to all ten records. Duplicate voltage values were collapsed before
 interpolation.
 
-For load group \(R\), the repeated trajectories were then combined by the
-pointwise arithmetic mean,
+For load group \(R\), the five interpolated trajectories were averaged
+pointwise,
 
 \[
 \overline{\dot V}_{R}(V)
@@ -449,15 +421,15 @@ pointwise arithmetic mean,
 \frac{1}{N_R}
 \sum_{j=1}^{N_R}
 \dot V_{R,j}(V),
+\qquad N_R=5.
 \]
 
-with \(N_R=5\) for each resistance condition. This voltage-coordinate
-representation allows the two load groups to be compared at the same terminal
-voltage independently of their different discharge durations.
+This representation compares the two groups at equal terminal voltage while
+remaining independent of their different time axes.
 
-** Global scaling factor
+** Global voltage-rate scaling
 
-The global scaling hypothesis is
+The global scaling model is
 
 \[
 \overline{\dot V}_{3.33}(V)
@@ -466,8 +438,8 @@ The global scaling hypothesis is
 \overline{\dot V}_{5}(V),
 \]
 
-where \(\alpha\) is a single multiplicative factor. The fitted factor was
-estimated by least squares through the origin over the robust voltage domain,
+with a single multiplicative factor \(\alpha\). It was estimated by
+least-squares regression through the origin over the robust voltage interval,
 
 \[
 \alpha
@@ -482,28 +454,23 @@ estimated by least squares through the origin over the robust voltage domain,
 }.
 \]
 
-No additive intercept was introduced because the quantity of interest is a
-pure temporal-rate scaling between trajectories; an offset would correspond to
-a nonzero discharge-rate difference even when the reference rate vanished.
-
-The fitted value is compared with the resistive-load ratio
+No intercept was included because the hypothesis being tested is a pure
+temporal-rate rescaling. The fitted factor was compared with the resistive-load
+ratio
 
 \[
 \alpha_R
 =
-\frac{R_{5}}{R_{3.33}}
+\frac{R_5}{R_{3.33}}
 =
 \frac{5}{3.33},
 \]
 
-which is the current ratio expected at equal terminal voltage under ideal
-resistive loading.
+which is the ideal current ratio at equal terminal voltage.
 
 ** Local dynamic ratio
 
-A single global factor does not test whether the scaling is locally uniform
-along the discharge trajectory. The voltage-dependent local dynamic ratio was
-therefore defined as
+Local departure from the global scaling model was characterized by
 
 \[
 K(V)
@@ -515,13 +482,9 @@ K(V)
 }.
 \]
 
-If the two mean discharge-rate fields differed only by a global temporal
-rescaling, \(K(V)\) would remain constant and equal to \(\alpha\).
-Systematic voltage dependence of \(K(V)\) therefore measures local departure
-from the global scaling relation.
-
-For interpretation in relative terms, the local departure from the global
-factor is also expressed as
+Under exact global rescaling, \(K(V)\) would be constant and equal to
+\(\alpha\). Its relative departure from the global factor was therefore
+expressed as
 
 \[
 \delta_K(V)
@@ -531,15 +494,10 @@ factor is also expressed as
 \right]\,\%.
 \]
 
-** Robust voltage interval
+** Robust voltage domain
 
-The ratio \(K(V)\) becomes numerically unstable where either group mean
-approaches zero because small denominator values amplify residual estimation
-errors. A rate-magnitude criterion was therefore applied before fitting or
-interpreting the ratio.
-
-A voltage-grid point was considered robust when both group-mean derivative
-magnitudes satisfied
+The ratio becomes unstable where either mean voltage rate approaches zero.
+Accordingly, a grid point was retained only when
 
 \[
 \left|
@@ -553,51 +511,44 @@ magnitudes satisfied
 \ge \dot V_{\min},
 \]
 
-with the default threshold
+with
 
 \[
 \dot V_{\min}=2\times10^{-4}\,\mathrm{V\,s^{-1}}.
 \]
 
-The principal analysis uses the longest contiguous voltage interval satisfying
-this criterion. This avoids interpreting isolated valid points separated by
-near-zero-rate regions and makes the domain of the global and local scaling
-analyses explicit.
+The principal analysis used the longest contiguous interval satisfying this
+criterion. This prevents isolated near-zero-rate points from dominating the
+ratio and fixes a common domain for global and local comparisons.
 
-** Bootstrap uncertainty and monotone estimate
+** Bootstrap uncertainty and monotone summary
 
-Uncertainty in the local scaling function was quantified by nonparametric
-bootstrap resampling of the repeated discharges. For each bootstrap replicate,
-the five \(3.33\,\Omega\) runs and the five \(5\,\Omega\) runs were
-resampled independently with replacement. Group-mean rate fields were
-recomputed, their ratio was formed on the fixed robust voltage interval, and
-the procedure was repeated 2000 times. Pointwise 2.5th and 97.5th percentiles
-define the reported 95% bootstrap confidence band.
+Uncertainty in \(K(V)\) was estimated by nonparametric bootstrap resampling.
+The five runs in each resistance group were sampled independently with
+replacement, group-mean rate fields were recomputed, and their ratio was
+evaluated over the fixed robust interval. This procedure was repeated 2000
+times. Pointwise 2.5th and 97.5th percentiles define the reported 95% bootstrap
+confidence band.
 
-Because the exploratory analyses showed that the large-scale trend in \(K(V)\)
-is predominantly decreasing with voltage, the final descriptive estimate uses a
-non-increasing isotonic regression fitted by the pool-adjacent-violators
-algorithm. The constraint is used only to summarize the broad monotone trend; it
-is not taken as evidence for discrete physical regimes.
+A weighted non-increasing isotonic regression, computed with the
+pool-adjacent-violators algorithm, was used to summarize the broad trend in
+\(K(V)\). The monotonic constraint is descriptive and is not interpreted as
+evidence for discrete physical regimes. Weights were proportional to the
+inverse squared delta-method standard error of the ratio of group means and were
+capped at the 95th percentile to prevent a few very small estimated standard
+errors from dominating the fit. Bootstrap uncertainty was obtained from
+resampling the repeated discharges, not from the isotonic-regression weights.
 
-To account approximately for repeat-dependent precision, the isotonic fit was
-weighted by the inverse squared delta-method standard error of the ratio of the
-two group means. Extremely large weights can occur where the estimated standard
-error is very small, so the weights were capped at their 95th percentile before
-the monotone fit. The bootstrap confidence interval itself is obtained by
-resampling repeated discharges rather than from the isotonic-fit weights.
+** Processing-parameter sensitivity
 
-** Sensitivity to processing parameters
-
-The dependence of the local dynamic ratio on processing choices was assessed
-systematically rather than by selecting a single visually favourable
-configuration. The Savitzky--Golay window was varied over
+Sensitivity to numerical processing choices was evaluated over all nine
+combinations of Savitzky--Golay windows
 
 \[
-30,\ 60,\ 120\,\mathrm{s},
+30,\ 60,\ 120\,\mathrm{s}
 \]
 
-and the minimum derivative threshold over
+and rate thresholds
 
 \[
 1\times10^{-4},\
@@ -605,28 +556,22 @@ and the minimum derivative threshold over
 3\times10^{-4}\,\mathrm{V\,s^{-1}}.
 \]
 
-All nine combinations were evaluated using the same voltage-domain procedure.
-Agreement of \(K(V)\) across these combinations is used as a robustness check
-for the observed voltage dependence. The default values
-\(60\,\mathrm{s}\) and
-\(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) are retained for the main
-quantitative summaries.
+The same voltage-domain analysis was repeated for each combination. The
+\(60\,\mathrm{s}\) window and
+\(2\times10^{-4}\,\mathrm{V\,s^{-1}}\) threshold define the reference
+analysis; the remaining combinations are used only to test robustness of the
+observed \(K(V)\) dependence.
 
-** Sequential-order and leave-one-out analyses
+** Sequential-order diagnostics and leave-one-out analysis
 
-Because the two load conditions were acquired sequentially rather than
-interleaved, additional analyses were used to quantify sensitivity to possible
-run-order effects.
+The possible effect of sequential acquisition was assessed without applying any
+correction to the data. Within each resistance group, measured capacity was
+regressed against run order. At each common voltage value, \(\dot V\) was
+also regressed against within-group run index to estimate the equivalent
+first-to-last change across the five repetitions.
 
-Within each resistance group, the measured capacity was regressed against run
-order. The same approach was applied pointwise to the voltage-rate trajectories:
-for each common voltage value, a linear regression of \(\dot V\) against
-within-group run index was used to estimate the first-to-last equivalent change
-across the five repeated discharges. These regressions are diagnostic rather
-than corrective; no run-order term is subtracted from the data.
-
-The possible magnitude of within-group dynamic drift was compared with the
-inter-group residual after global scaling,
+The resulting within-group drift magnitude was compared with the residual left
+after global scaling,
 
 \[
 r(V)
@@ -637,18 +582,10 @@ r(V)
 \overline{\dot V}_{5}(V).
 \]
 
-Finally, stability of the fitted global factor was assessed by leave-one-out
-resampling. One run was omitted from the \(3.33\,\Omega\) group and one
-from the \(5\,\Omega\) group, producing all
-
-\[
-5\times5=25
-\]
-
-paired leave-one-out combinations. The global factor \(\alpha\) was
-re-estimated for every combination using the same robust-threshold and
-least-squares procedure. The resulting distribution measures sensitivity of the
-global scaling estimate to the finite set of repeated discharges.
+Finally, sensitivity of \(\alpha\) to the finite repeat set was evaluated by
+leaving out one run from each load group. All \(5\times5=25\) paired
+leave-one-out combinations were analysed with the same robust-domain and
+least-squares procedure.
 
 * Results
 
